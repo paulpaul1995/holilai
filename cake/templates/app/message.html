@@ -1,0 +1,86 @@
+
+{% extends 'app/base.html' %}
+
+{% block css %}
+    <link href="http://www.holiland.com/statics/css/global.css" rel="stylesheet" type="text/css">
+<link href="http://www.holiland.com/statics/css/channel.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="http://www.holiland.com/statics/js/jquery.min.js"></script>
+<script src="http://www.holiland.com/statics/js/layer/layer.js" ></script>
+<script src="http://www.holiland.com/statics/js/ajaxForm.js" ></script>
+<script src="http://www.holiland.com/statics/js/common.js" ></script>
+
+{% endblock %}
+
+{% block body %}
+    <div class="hll_content">
+	<div class="content_bt">留言板</div>
+	<div class="hll_bjk ">
+		<div style="width:100%;padding-top:10px;">注意：带<span style="color:red;">*</span>项目为必填项，请认真填写各项内容。</div>
+		<form name="fgmessageBoardForm" method="post" action="message.php" class="ajaxForm">
+			<input type="hidden" name="act" value="act_add_message" />
+			<div class="zc_xx">
+				<!-- <ul>
+					<li class="text_right"><b>*</b>主题：</li>
+					<li>
+						<div class="xx"><input name="msg_title" maxlength="60" size="60" value="" class="bg" type="text"></div>
+					</li>
+				</ul> -->
+				<ul>
+					<li class="text_right"><b>*</b>留言类型：</li>
+					<li>
+						<div class="xx">
+							<select name="msg_type">
+								<option value="-1">请选择</option>
+								<option value="1">投诉建议</option>
+								<option value="2">产品咨询</option>
+								<option value="3">业务咨询</option>
+								<option value="5">团购业务</option>
+								<option value="0">其他</option>
+							</select>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li class="text_right"><b>*</b>姓名：</li>
+					<li>
+
+						<div class="xx"><input name="user_name" maxlength="20" size="26" value="" class="bg" type="text"></div>
+					</li>
+				</ul>
+				<ul>
+					<li class="text_right"><b>*</b>Email：</li>
+					<li>
+						<div class="xx"><input name="email" maxlength="50" size="26" value="0" class="bg" type="text"></div>
+					</li>
+				</ul>
+				<ul>
+					<li class="text_right"><b>*</b>联系电话：</li>
+					<li>
+						<div class="xx"><input name="msg_phone" size="26" value="" class="bg" type="text"></div>
+					</li>
+				</ul>
+				<ul>
+					<li class="text_right"><b>*</b>留言内容：</li>
+					<li>
+						<div class="xx"><textarea name="msg_content" cols="70" rows="4"></textarea></div>
+					</li>
+				</ul>
+								<ul>
+					<li class="text_right">验证码：</li>
+					<li>
+						<div class="xx">
+							<input name="captcha" size="12" class="bg" id="captcha" style="width:100px" value="" type="text">
+							<img src="captcha.php?width=50&height=20&1753048861" alt="captcha" style="vertical-align: middle;cursor: pointer; float:left; margin-top:5px; margin-left:10px;" onClick="this.src='captcha.php?width=50&height=20&'+Math.random()" />
+						</div>
+					</li>
+				</ul>
+							</div>
+			<div class="cz_btn" style="height:45px;">
+				<span class="tj submitbtn" data-ismsg="1" style="float:left;margin-left:-6%" onclick="javascript:;">提交</span>
+				<span class="tj resert" onclick="javascript:;" style="float:left;margin-left:5%;    background: #ededed;color:#1e1e1e" >重置</span>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

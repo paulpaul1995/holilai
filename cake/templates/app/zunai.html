@@ -1,0 +1,164 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>尊爱系列</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="hll_listBox">
+
+	<div class="h_xilfenlei" style="display:none;">
+		<div class="h_cakexl" style="width:800px;text-align:left;">
+			<span style="float:left;width:70px;"><!--<a href="http://www.holiland.com/" >主页</a>&nbsp;/-->产品分类：</span>
+			<span style="float:left;width:730px; line-height:20px;">
+				<a href="http://www.holiland.com/classify/1.html" style="display: inline-block;padding-left: 5px;padding-right: 5px;">全部</a>
+							<span>
+		</span></span></div>
+
+		<div class="h_fenright" style="margin-left:15px;">
+			<a href="javascript:;" class="line" style="width:6px;">
+				<img src="http://www.holiland.com/statics/images/prev_page.png">
+			</a>
+			<a href="" class="h_active" style="border:none; width:auto; padding:0 3px;">1</a>
+			<a href="javascript:;" class="nn line" style="width:6px;">
+				<img src="http://www.holiland.com/statics/images/next_page.png">
+			</a>
+		</div>
+		<div class="h_fenleft" style="float:right; text-align:right; width:auto;">
+			<span class="right_" style="margin-left:0">
+				<a href="http://www.holiland.com/classify.php?id=34&amp;page=1&amp;sort=shop_price&amp;order=ASC#goods_list">价格
+					<span>↓</span>
+				</a>
+				<!--
+				<a href="http://www.holiland.com/classify.php?id=34&page=1&sort=snum&order=ASC#goods_list">销量
+					<span>↓</span>
+				</a>
+				-->
+			</span>
+		</div>
+	</div>
+	<div class="sorad_list">
+		<ul>
+							<li style="width:325px;margin-right:10px;;">
+					<div class="zstu">
+						<a href="http://www.holiland.com/detailed/1036.html" onfocus="this.blur()" target="_blank">
+							<img src="http://www.holiland.com/images/201903/goods_img/1036_G_1552021593270.jpg" align="absmiddle" border="0">
+						</a>
+					</div>
+					<div class="xx">
+						<a href="http://www.holiland.com/detailed.php?id=1036" onfocus="this.blur()" target="_blank">
+							<p>瑞鹤呈祥</p>
+								<label style="height:15px;"></label>
+							<b>￥569.00</b>
+						</a>
+					</div>
+				</li>
+							<li style="width:325px;margin-right:10px;;">
+					<div class="zstu">
+						<a href="http://www.holiland.com/detailed/1035.html" onfocus="this.blur()" target="_blank">
+							<img src="http://www.holiland.com/images/201903/goods_img/1035_G_1552021627399.jpg" align="absmiddle" border="0">
+						</a>
+					</div>
+					<div class="xx">
+						<a href="http://www.holiland.com/detailed.php?id=1035" onfocus="this.blur()" target="_blank">
+							<p>华贵天香</p>
+								<label style="height:15px;"></label>
+							<b>￥599.00</b>
+						</a>
+					</div>
+				</li>
+							<li style="width:325px;margin-right:0;">
+					<div class="zstu">
+						<a href="http://www.holiland.com/detailed/1034.html" onfocus="this.blur()" target="_blank">
+							<img src="http://www.holiland.com/images/201903/goods_img/1034_G_1552021650545.jpg" align="absmiddle" border="0">
+						</a>
+					</div>
+					<div class="xx">
+						<a href="http://www.holiland.com/detailed.php?id=1034" onfocus="this.blur()" target="_blank">
+							<p>福寿盈门</p>
+								<label style="height:15px;"></label>
+							<b>￥399.00</b>
+						</a>
+					</div>
+				</li>
+							<li style="width:325px;margin-right:10px;;">
+					<div class="zstu">
+						<a href="http://www.holiland.com/detailed/1033.html" onfocus="this.blur()" target="_blank">
+							<img src="http://www.holiland.com/images/201903/goods_img/1033_G_1552021678331.jpg" align="absmiddle" border="0">
+						</a>
+					</div>
+					<div class="xx">
+						<a href="http://www.holiland.com/detailed.php?id=1033" onfocus="this.blur()" target="_blank">
+							<p>春辉永绽</p>
+								<label style="height:15px;"></label>
+							<b>￥399.00</b>
+						</a>
+					</div>
+				</li>
+							<li style="width:325px;margin-right:10px;;">
+					<div class="zstu">
+						<a href="http://www.holiland.com/detailed/1032.html" onfocus="this.blur()" target="_blank">
+							<img src="http://www.holiland.com/images/201903/goods_img/1032_G_1552021702024.jpg" align="absmiddle" border="0">
+						</a>
+					</div>
+					<div class="xx">
+						<a href="http://www.holiland.com/detailed.php?id=1032" onfocus="this.blur()" target="_blank">
+							<p>蟠桃捧日</p>
+								<label style="height:15px;"></label>
+							<b>￥599.00</b>
+						</a>
+					</div>
+				</li>
+						<li id="loading" style="display:none;width:100%;text-align:center;"></li>
+		</ul>
+	</div>
+	<div class="h_xilfenlei h_xilfenlei1" style="display:none;">
+		<div class="h_cakexl" style="width:800px;text-align:left;">
+			<span style="float:left;width:70px;"><!--<a href="http://www.holiland.com/" >主页</a>&nbsp;/-->蛋糕分类：</span>
+			<span style="float:left;width:730px; line-height:20px;">
+				<a href="http://www.holiland.com/classify/1.html" style="display: inline-block;padding-left: 5px;padding-right: 5px;">全部</a>
+							<span>
+		</span></span></div>
+
+		<div class="h_fenright" style="margin-left:15px;">
+			<a href="javascript:;" class="line" style="width:6px;">
+				<img src="http://www.holiland.com/statics/images/prev_page.png">
+			</a>
+			<a href="" class="h_active" style="border:none; width:auto; padding:0 3px;">1</a>
+			<a href="javascript:;" class="nn line" style="width:6px;">
+				<img src="http://www.holiland.com/statics/images/next_page.png">
+			</a>
+		</div>
+		<div class="h_fenleft" style="float:right; text-align:right; width:auto;">
+			<span class="right_" style="margin-left:0">
+				<a href="http://www.holiland.com/classify.php?id=34&amp;page=1&amp;sort=shop_price&amp;order=ASC#goods_list">价格
+					<span>↓</span>
+				</a>
+				<!--
+				<a href="http://www.holiland.com/classify.php?id=34&page=1&sort=snum&order=ASC#goods_list">销量
+					<span>↓</span>
+				</a>
+				-->
+			</span>
+		</div>
+	</div>
+	<div class="blank"></div>
+
+
+
+<script id="TQGetrequestUser_JS"></script>
+<script id="TQGetIsNewMsg_JS"></script>
+<!-- <script src="http://www.holiland.com/statics/js/as.js"></script> -->
+<object id="tq_as" name="tq_as" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="1" width="1">
+	<param name="movie" value="http://sysimages.edu.tq.cn/js/vip/shareObject.swf">
+	<param name="allowScriptAccess" value="always">
+	<object id="tq_as2" name="tq_as2" type="application/x-shockwave-flash" data="http://www.holiland.com/statics/shareObject.swf" height="1" width="1">
+		<param name="allowScriptAccess" value="always">
+	</object>
+</object>
+</div>
+
+{% endblock %}

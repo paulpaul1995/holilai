@@ -1,0 +1,207 @@
+
+{% extends 'app/base.html' %}
+
+{% block css %}
+    <link href="/static/css/global.css" rel="stylesheet" type="text/css">
+<link href="/static/css/member.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="/static/js/jquery.min.js"></script>
+<script src="/static/js/layer/layer.js" ></script>
+<script src="/static/js/ajaxForm.js" ></script>
+<script src="/static/js/common.js" ></script>
+
+{% endblock css %}
+
+{% block body %}
+<div class="hll_meb">
+
+<div class="hll_meb_l">
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>业务功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:order' %} ">查看订单</a></li>
+			<li><a href="{% url 'app:favorite' %} ">收藏夹</a></li>
+			<li><a href="{% url 'app:friend' %} ">我的亲友</a></li>
+			<li><a href="{% url 'app:address' %} ">收货地址簿</a></li>
+			<li><a href="{% url 'app:integral' %} ">我的积分</a></li>
+			<li><a href="{% url 'app:bonus' %} ">我的优惠券</a></li>
+			<!-- <li><a href="user.php?act=exchange">兑换优惠券</a></li> -->
+			<!-- <li><a href="user.php?act=return">退换货申请</a></li> -->
+			<li><a href="{% url 'app:message' %} ">投诉和建议</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>个人信息</h3></div>
+		<ul>
+			<li><a href="{% url 'app:changem' %} ">更换手机号</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">修改密码</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">编辑用户信息</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>其他功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:index' %}" class="opAjax" data-confirm="0" data-ismsg="1">退出</a></li>
+			<li><a href="{% url 'app:user' %}">返回帐户首页</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var objStr = ".help_menu div.tit span";
+	$(objStr).each(function(i){
+		$(this).click(function(){
+			$($(".help_menu div.tit")[i]).next("ul").slideToggle(20);
+			$(this).toggleClass("cur");
+			$(this).siblings("span").removeClass("cur");
+		});
+	});
+
+	$(".help_menu ul li").mouseover(function () {
+		$(this).addClass('Bg_hover');
+	});
+	$(".help_menu ul li").mouseout(function () {
+		$(this).removeClass('Bg_hover');
+	});
+});
+</script>
+
+	<div class="hll_meb_r">
+
+
+
+
+				<div class="hll_memDD">
+			<div class="tit">
+				<h3 class="meb_bt">我的收藏夹</h3>
+				<div class="hll_intro">
+					共收藏了 <span></span> 个商品
+				</div>
+			</div>
+		</div>
+
+				<form name="favoriteForm" method="post" action="{% url 'app:user' %}" class="ajaxForm">
+		<input type="hidden" name="act" value="delFavorite" />
+		<div class="hll_memDD hll_memList">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<th class="text_10" width="10%"><a href="javascript:;" class="checkAll" data-name="selected[]">全选/反选</a></th>
+						<th width="45%"><span>商品名称</span></th>
+						<th width="15%"><span>商城价</span></th>
+						<th width="15%"><span>放入时间</span></th>
+						<th width="15%"><span>操作</span></th>
+					</tr>
+										<tr>
+						<td class="text_l"><input name="selected[]" value="3540" type="checkbox" autocomplete="off" /></td>
+						<td>
+							<div class="product_pic">
+								<a href="http://www.holiland.com/detailed/934.html" target="_blank">
+									<img src="http://www.holiland.com/images/201809/thumb_img/934_thumb_G_1536034554361.jpg" alt="丹麦式酸奶" title="丹麦式酸奶">
+								</a>
+							</div>
+							<div class="product_name">
+								<a href="detailed.php?id=934" target="_blank">丹麦式酸奶</a><br>
+								<a href="detailed.php?id=934" target="_blank">不支持7天无理由</a>
+							</div>
+						</td>
+						<td>
+														￥0.00													</td>
+						<td>2019-09-16</td>
+						<td>
+							<a href="http://www.holiland.com/detailed.php?id=934" target="_blank">立即购买</a><br>
+							<a href="javascript:addToCart_user(934);">添加到购物车</a><br>
+							<a href="http://www.holiland.com/user.php?act=delFavorite&id=3540" class="opAjax" data-msg="确定删除吗？">删除</a>
+						</td>
+					</tr>
+										<tr>
+						<td class="text_l"><input name="selected[]" value="3539" type="checkbox" autocomplete="off" /></td>
+						<td>
+							<div class="product_pic">
+								<a href="http://www.holiland.com/detailed/74.html" target="_blank">
+									<img src="http://www.holiland.com/images/201603/thumb_img/74_thumb_G_1456910476818.jpg" alt="玫瑰花园" title="玫瑰花园">
+								</a>
+							</div>
+							<div class="product_name">
+								<a href="detailed.php?id=74" target="_blank">玫瑰花园</a><br>
+								<a href="detailed.php?id=74" target="_blank"></a>
+							</div>
+						</td>
+						<td>
+														￥0.00													</td>
+						<td>2019-09-16</td>
+						<td>
+							<a href="http://www.holiland.com/detailed.php?id=74" target="_blank">立即购买</a><br>
+							<a href="javascript:addToCart_user(74);">添加到购物车</a><br>
+							<a href="http://www.holiland.com/user.php?act=delFavorite&id=3539" class="opAjax" data-msg="确定删除吗？">删除</a>
+						</td>
+					</tr>
+										<tr>
+						<td class="text_l"><input name="selected[]" value="3538" type="checkbox" autocomplete="off" /></td>
+						<td>
+							<div class="product_pic">
+								<a href="http://www.holiland.com/detailed/1008.html" target="_blank">
+									<img src="http://www.holiland.com/images/201903/thumb_img/1008_thumb_G_1552020565585.jpg" alt="甜蜜进行时" title="甜蜜进行时">
+								</a>
+							</div>
+							<div class="product_name">
+								<a href="detailed.php?id=1008" target="_blank">甜蜜进行时</a><br>
+								<a href="detailed.php?id=1008" target="_blank"></a>
+							</div>
+						</td>
+						<td>
+														￥0.00													</td>
+						<td>2019-09-16</td>
+						<td>
+							<a href="http://www.holiland.com/detailed.php?id=1008" target="_blank">立即购买</a><br>
+							<a href="javascript:addToCart_user(1008);">添加到购物车</a><br>
+							<a href="http://www.holiland.com/user.php?act=delFavorite&id=3538" class="opAjax" data-msg="确定删除吗？">删除</a>
+						</td>
+					</tr>
+										<tr>
+						<td class="text_l"><input name="selected[]" value="3527" type="checkbox" autocomplete="off" /></td>
+						<td>
+							<div class="product_pic">
+								<a href="http://www.holiland.com/detailed/1029.html" target="_blank">
+									<img src="http://www.holiland.com/images/201903/thumb_img/1029_thumb_G_1552021777818.jpg" alt="快乐牧场" title="快乐牧场">
+								</a>
+							</div>
+							<div class="product_name">
+								<a href="detailed.php?id=1029" target="_blank">快乐牧场</a><br>
+								<a href="detailed.php?id=1029" target="_blank"></a>
+							</div>
+						</td>
+						<td>
+														￥0.00													</td>
+						<td>2019-09-11</td>
+						<td>
+							<a href="http://www.holiland.com/detailed.php?id=1029" target="_blank">立即购买</a><br>
+							<a href="javascript:addToCart_user(1029);">添加到购物车</a><br>
+							<a href="http://www.holiland.com/user.php?act=delFavorite&id=3527" class="opAjax" data-msg="确定删除吗？">删除</a>
+						</td>
+					</tr>
+									</tbody>
+			</table>
+		</div>
+		<div class="use_table_f">
+			<div class="cz_left"><input id="chkAll" onclick="CheckAll(this.form)" type="checkbox" autocomplete="off" />
+
+			<a href="javascript:;" class="submitbtn">删除选中</a>
+			<a href="" >更新收藏夹</a>
+			<a href="http://www.holiland.com/" >←继续购物</a>
+
+			</div>
+			<div class="hll_page hll_mebPage">
+			<img src="/static/images/up.jpg">
+			<a href="/user.php?act=favorite&page=1" class="xz">1</a>
+			<img src="/static/images/down.jpg">
+		</div>		</div>
+		</form>
+
+
+
+
+	</div>
+</div>
+
+
+{% endblock body %}

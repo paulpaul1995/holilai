@@ -1,0 +1,66 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>好利来蛋糕官网__蛋糕3小时急送达__口感不满即可退货</title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="hll_zbgg">
+	<!-- <div class="site_notice" style="margin-bottom:10px;">
+		<div class="txtMarquee-top">
+			<em style="float: left;display: block;width: 13px;height: 13px;background: url(http://www.holiland.com/statics/images/icon/ico-1.png) no-repeat center;}"></em>
+			<div class="bd" style="height:15px;line-height:15px;overflow:hidden;padding-left:5px;font-size:14px;">
+				<ul>
+					<li style="width:1550px">尊敬的各位顾客，近期有顾客反馈接到有冒充好利来工作人员推销会员卡的诈骗电话，我公司不会主动用4007005999给消费者打电话。现我公司已经向公安局报案，请接到诈骗电话不要轻易相信。我们也会尽最大全力调查此事，给您带来不便请见谅。</li>
+				</ul>
+			</div>
+		</div>
+	</div> -->
+
+	<div class="main_visual hh" id="numad02">
+	<div class="main_image">
+					<span style="display: none; text-align: center;">
+				<a href="affiche.php?ad_id=1&amp;uri=http%3A%2F%2Fwww.holiland.com%2Fdetailed%2F6.html"><img src="/static/images/afficheimg/1451241729614010049.jpg"></a>
+			</span>
+					<span style="display: none; text-align: center;">
+				<a href="affiche.php?ad_id=52&amp;uri=http%3A%2F%2Fwww.holiland.com%2Fdetailed%2F74.html"><img src="/static/images/afficheimg/1456986961694221493.jpg"></a>
+			</span>
+					<span style="display: none; text-align: center;">
+				<a href="affiche.php?ad_id=44&amp;uri=http%3A%2F%2Fwww.holiland.com%2Fdetailed.php%3Fid%3D61"><img src="/static/images/afficheimg/1457047833194068991.jpg"></a>
+			</span>
+					<span style="display: inline; text-align: center;">
+				<a href="affiche.php?ad_id=25&amp;uri=http%3A%2F%2Fwww.holiland.com%2Fclassify%2F1.html"><img src="/static/images/afficheimg/1464247474728938268.jpg"></a>
+			</span>
+			</div>
+	<a href="javascript:;" id="btn_prev"></a>
+	<a href="javascript:;" id="btn_next"></a>
+	<div class="num">
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+					<span class="ad01"></span>
+			</div>
+	<script type="text/javascript">
+	$(function () {
+		$('#numad02 .main_image span').soChange({
+			thumbObj:'.num span',
+			thumbNowClass:'ad01',
+			botPrev:'#numad02 #btn_prev',
+			slideTime:1200,
+			changeTime:4000,
+			delayTime:0,
+			overStop:true,
+			botNext:'#numad02 #btn_next'
+		});
+		//公告滚动
+		$(".txtMarquee-top").slide({mainCell: ".bd ul", autoPlay: true, effect: "leftMarquee", vis: 1, interTime: 100});
+	});
+	</script>
+  </div>
+ </div>
+
+
+{% endblock body %}

@@ -1,0 +1,138 @@
+
+{% extends 'app/base.html' %}
+
+{% block css %}
+
+    <link href="/static/css/global.css" rel="stylesheet" type="text/css">
+<link href="/static/css/member.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="/static/js/jquery.min.js"></script>
+<script src="/static/js/layer/layer.js" ></script>
+<script src="/static/js/ajaxForm.js" ></script>
+<script src="/static/js/common.js" ></script>
+
+{% endblock %}
+
+{% block body %}
+
+<!-- <div class="hll_meb hll_meb_bt">我的账户</div> -->
+<div class="hll_meb hll_meb_bt" style="text-align:center; padding-left:0; width:996px; background:#fff;">
+	<span style="float:left; width:45%; display:inline-block; border-top:1px dashed #d5d5d5; margin-top:14px;"></span>
+	<span style="width:10%; display:inline-block; color:#909090; font-weight:bold;">我的账户</span>
+	<span style="float:right; width:45%; display:inline-block; border-top:1px dashed #d5d5d5; margin-top:14px;"></span>
+</div>
+<div class="hll_meb">
+
+	<div class="hll_meb_l">
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>业务功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:order' %} ">查看订单</a></li>
+			<li><a href="{% url 'app:favorite' %} ">收藏夹</a></li>
+			<li><a href="{% url 'app:friend' %} ">我的亲友</a></li>
+			<li><a href="{% url 'app:address' %} ">收货地址簿</a></li>
+			<li><a href="{% url 'app:integral' %} ">我的积分</a></li>
+			<li><a href="{% url 'app:bonus' %} ">我的优惠券</a></li>
+			<!-- <li><a href="user.php?act=exchange">兑换优惠券</a></li> -->
+			<!-- <li><a href="user.php?act=return">退换货申请</a></li> -->
+			<li><a href="{% url 'app:message' %} ">投诉和建议</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>个人信息</h3></div>
+		<ul>
+			<li><a href="{% url 'app:changem' %} ">更换手机号</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">修改密码</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">编辑用户信息</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>其他功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:index' %}" class="opAjax" data-confirm="0" data-ismsg="1">退出</a></li>
+			<li><a href="{% url 'app:user' %}">返回帐户首页</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var objStr = ".help_menu div.tit span";
+	$(objStr).each(function(i){
+		$(this).click(function(){
+			$($(".help_menu div.tit")[i]).next("ul").slideToggle(20);
+			$(this).toggleClass("cur");
+			$(this).siblings("span").removeClass("cur");
+		});
+	});
+
+	$(".help_menu ul li").mouseover(function () {
+		$(this).addClass('Bg_hover');
+	});
+	$(".help_menu ul li").mouseout(function () {
+		$(this).removeClass('Bg_hover');
+	});
+});
+</script>
+
+	<div class="hll_meb_r">
+
+				<div class="hll_memTs">
+			<b>
+				<span>您好，{{ user.username }}</span>欢迎您回来！
+			</b>
+			您上一次登录时间：{{ user.last_login }}</div>
+{#			<div class="hll_memTs2">#}
+{#				添加一个亲友信息赠送积分50，亲友可以用注册手机号码，默认密码：123456登陆本站。#}
+{#				<a href="http://www.holiland.com/user.php?act=addFriend">添加我的亲友</a>#}
+{#			</div>#}
+			<div class="hll_memTs3">
+				<ul>
+					<li>您目前的级别：<label></label></li>
+					<li>在本商城购物可享受折扣：<label></label></li>
+					<li>账户积分：<span>{{ user.score }}积分</span></li>
+					<li>可用积分：<span>{{ user.score }}积分</span></li>
+				</ul>
+			</div>
+			<div class="hll_memGG">
+				<h3>会员公告</h3>
+				<ul>
+					<li>欢迎入驻好利来！</li>
+				</ul>
+			</div>
+			<div class="hll_memDD">
+				<div class="tit">
+					<h3>订单列表</h3>
+					<div class="hll_intro" style="float:right;">
+					<a href="{% url 'app:order' %}?act=order">更多订单>></a>
+				</div>
+			</div>
+			<table cellpadding="0" cellspacing="0" border="0">
+
+				<tr>
+					<th class="text_10">订单号</th>
+					<th width="15%"><span>收货人姓名</span></th>
+					<th width="14%"><span>总价</span></th>
+					<th width="14%"><span>状态</span></th>
+					<th width="14%"><span>应付</span></th>
+					<th width="14%"><span>支付</span></th>
+					<th width="10%"><span>操作</span></th>
+				</tr>
+                {% for order in orders %}
+                <tr>
+					<td ><b>{{ order.ordernumber }}</b></td>
+                    <td ><b>{{ order.name }}</b></td>
+                    <td ><b>{{ order.total_price }}</b></td>
+                    <td ><b>{{ order.paytype }}</b></td>
+                    <td ><b>{{ order.total_price }}</b></td>
+                    <td ><b>{{ order.paytype }}</b></td>
+                    <td ><b>{{ order.iscart }}</b></td>
+
+{#                    <td colspan="7" style="color:#626262;padding-bottom:18px;"><b>无</b></td>#}
+                </tr>
+                {% endfor %}
+			</table>
+		</div>
+
+	</div>
+</div>
+
+{% endblock body %}

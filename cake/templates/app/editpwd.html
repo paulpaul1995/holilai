@@ -1,0 +1,201 @@
+
+{% extends 'app/base.html' %}
+{% block css %}
+    <link href="http://www.holiland.com/statics/css/global.css" rel="stylesheet" type="text/css">
+<link href="http://www.holiland.com/statics/css/member.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="http://www.holiland.com/statics/js/jquery.min.js"></script>
+<script src="http://www.holiland.com/statics/js/layer/layer.js" ></script>
+<script src="http://www.holiland.com/statics/js/ajaxForm.js" ></script>
+<script src="http://www.holiland.com/statics/js/common.js" ></script>
+<style type="text/css">
+.paysubmit{float:left; margin-left:10px;cursor: pointer; border:none; display: block;height: 40px;line-height: 40px;text-align: center;width: 100px;background: none repeat scroll 0% 0% #87D0E3;font-size: 16px; color:#fff;}
+#syl_but{
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+  background: none repeat scroll 0% 0% #87D0E3;
+  font-size: 16px;
+  color: #fff;
+}
+</style>
+</head>
+{% endblock %}
+
+{% block body %}
+
+<div class="hll_meb">
+
+			<div class="hll_meb_l">
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>业务功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:order' %} ">查看订单</a></li>
+			<li><a href="{% url 'app:favorite' %} ">收藏夹</a></li>
+			<li><a href="{% url 'app:friend' %} ">我的亲友</a></li>
+			<li><a href="{% url 'app:address' %} ">收货地址簿</a></li>
+			<li><a href="{% url 'app:integral' %} ">我的积分</a></li>
+			<li><a href="{% url 'app:bonus' %} ">我的优惠券</a></li>
+			<!-- <li><a href="user.php?act=exchange">兑换优惠券</a></li> -->
+			<!-- <li><a href="user.php?act=return">退换货申请</a></li> -->
+			<li><a href="{% url 'app:message' %} ">投诉和建议</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>个人信息</h3></div>
+		<ul>
+			<li><a href="{% url 'app:changem' %} ">更换手机号</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">修改密码</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">编辑用户信息</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>其他功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:index' %}" class="opAjax" data-confirm="0" data-ismsg="1">退出</a></li>
+			<li><a href="{% url 'app:user' %}">返回帐户首页</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var objStr = ".help_menu div.tit span";
+	$(objStr).each(function(i){
+		$(this).click(function(){
+			$($(".help_menu div.tit")[i]).next("ul").slideToggle(20);
+			$(this).toggleClass("cur");
+			$(this).siblings("span").removeClass("cur");
+		});
+	});
+
+	$(".help_menu ul li").mouseover(function () {
+		$(this).addClass('Bg_hover');
+	});
+	$(".help_menu ul li").mouseout(function () {
+		$(this).removeClass('Bg_hover');
+	});
+});
+</script>
+
+	<div class="hll_meb_r">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--#兑换优惠券页面 start>-->
+
+
+
+				<div class="hll_memDD">
+			<div class="tit">
+				<h3 class="meb_bt">修改密码</h3>
+			</div>
+		</div>
+		<form name="fguserForm" method="post" action="http://www.holiland.com/misc.php" class="ajaxForm">
+			<input name="act" type="hidden" value="act_edit_password" />
+			<div class="meb_bjxx">
+				<!-- <ul>
+					<li class="text_right">您的用户名：</li>
+					<li>13148636172</li>
+				</ul> -->
+				<ul class="hg">
+					<li class="text_right">请输入原密码：</li>
+					<li>
+						<div class="xx"><input name="old_password" class="bg" type="password"></div>
+						<span class="ts">请输入您的原密码</span>
+					</li>
+				</ul>
+				<!-- <ul class="hg">
+					<li class="text_right">请输入手机号：</li>
+					<li>
+						<div class="xx"><input name="new_phone" class="bg" type="text"></div>
+						<span class="ts">请输入绑定手机号！未绑定则留空！</span>
+					</li>
+				</ul>
+				<ul class="hg">
+					<li class="text_right">手机验证码：</li>
+					<li>
+						<div class="xx"><input name="mobilecode"  class="bg" type="text" style="width:150px;"><span class="tj get_code" onclick="javascript:;"style="width:125px;height:29px;margin-top:-1px;line-height:30px;">获取短信验证码</span></div>
+					</li>
+				</ul> -->
+				<ul class="hg">
+					<li class="text_right">请输入新密码：</li>
+					<li>
+						<div class="xx" style=" margin-bottom:5px;"><input name="new_password" onkeyup="pwStrength(this.value)" onpaste="return false;" class="bg" type="password"></div>
+						<span class="ts">
+							由英文字母、数字组成，长度6－12位。
+						</span>
+						<dl>
+							<dd>密码强度：弱</dd>
+								<dd class="qd_box">
+									<span id="paaswdPR"></span>
+								</dd>
+							<dd>强</dd>
+						</dl>
+					</li>
+				</ul>
+				<ul class="hg">
+					<li class="text_right">请确认新密码：</li>
+					<li>
+						<div class="xx"><input name="confirm_password" onblur="checkPassWord(this.value)" class="bg" type="password"></div>
+						<span class="" id="userpwd">
+							由英文字母、数字组成，长度6－12位。
+						</span>
+					</li>
+				</ul>
+				<ul>
+					<li class="text_right"></li>
+					<li>
+						<span class="tj submitbtn" data-ismsg="1" onclick="javascript:;">提交</span></li>
+				</ul>
+			</div>
+			<script>
+			$(document).ready(function(){
+				$(".meb_bjxx ul.hg").mouseover(function () {
+					$(this).find("span").show();
+					//$(this).addClass('hover_bg');
+				});
+				$(".meb_bjxx ul.hg").mouseout(function () {
+					$(this).find("span.ts").hide();
+					//$(this).removeClass('hover_bg');
+				});
+			});
+			</script>
+		</form>
+
+
+
+
+	</div>
+</div>
+
+
+
+
+{% endblock %}

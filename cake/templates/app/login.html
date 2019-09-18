@@ -1,0 +1,103 @@
+{% extends 'app/base.html' %}
+
+{% block title %}
+<title>登录</title>
+{% endblock %}
+
+{% block css %}
+    <link href="/static/css/login.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+    <link href="/static/css/global.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" type="text/css" href="/static/css/register/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/register/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/register/list.css">
+
+
+{% endblock %}
+
+
+{% block script %}
+
+    <script language="JavaScript" src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/layer/layer.js" ></script>
+    <script src="/static/js/ajaxForm.js" ></script>
+    <script src="/static/js/common.js" ></script>
+
+{% endblock %}
+
+
+{% block body %}
+
+    <!-- <div class="login_bt">用户登录</div> -->
+    <div class="nfl" id="main_message">
+        <div class="f_c altw">
+            <div id="messagetext" class="alert_info">
+                <p style="color: #005AB4;font-size: 16px;">用户登录</p>
+            </div>
+            <div id="messagelogin"></div>
+
+            <div id="main_messaqge_LAPpm">
+                <div id="layer_login_LAPpm">
+                    <h3 class="flb">
+{#                        <em id="returnmessage_LAPpm">用户登录</em>#}
+                        <span></span>
+                    </h3>
+                    <form method="post" autocomplete="off" name="login" id="loginform_LAPpm" class="cl"
+                          action="">
+                        {% csrf_token %}
+{#                        <input type='hidden' name='csrfmiddlewaretoken' value='crEmzkV19TgCcqHy8SlDume9wjDajW3bvm2448kgiPnYdmw1WtLwg7mxi67uVnW5' />#}
+                        <div class="c cl">
+                            <div class="rfm">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th><label for="username_LAPpm">用户名:</label></th>
+                                        <td><input type="text" name="username" id="username_LAPpm" autocomplete="off"
+                                                   size="30" class="px p_fre"></td>
+                                        <td class="tipcol"><a href="/register/">立即注册</a></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="rfm">
+                                <table>
+                                    <tbody>
+                                    <tr>
+                                        <th><label for="password3_LAPpm">密码:</label></th>
+                                        <td><input type="password" id="password3_LAPpm" name="password" size="30"
+                                                   class="px p_fre"></td>
+                                        <td class="tipcol"><a href="" title="找回密码">找回密码</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <input type="hidden" name="next" value="">
+                            <div class="rfm mbw bw0">
+                                <table width="100%">
+                                    <tbody>
+                                    <tr>
+                                        <th>&nbsp;</th>
+
+                                        <td>
+                                            <button class="pn pnc" type="submit" name="loginsubmit" value="true"
+                                                    tabindex="1"><strong>登录</strong></button>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+{% endblock %}

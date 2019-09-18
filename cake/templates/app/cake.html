@@ -1,0 +1,76 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>儿童系列</title>
+{% endblock %}
+
+<style>
+    .h_xlzhanshi img{
+        margin-left: 50%;
+    }
+</style>
+
+{% block body %}
+
+    <div class="block box">
+<div class="h_xilfenlei" style="height:auto; text-align:left; display:none;">
+	<div class="h_cakexl" style="width:996px; float:none; text-align:left; margin:0">
+		<div class="h_xl" style="overflow:visible; height:auto; margin-bottom:35px;">
+		<ul style="display:inline-block;float:left;width:895px;">
+			<li style="float:left;padding-right:5px;margin-bottom:5px;padding-left:5px"><a href="http://www.holiland.com/"><b>主页 /</b></a> </li>
+			<li style="float:left;padding-right:5px;margin-bottom:5px;padding-left:5px"><a href="http://www.holiland.com/classify/1.html">全部</a> </li>
+					</ul>
+		</div>
+	</div>
+</div>
+<div class="h_xlzhanshi" style="margin-left:13%">
+	<a href="{% url 'app:classics' %}"><img src="/static/imgaes/afficheimg/1556066281201055112.jpg"></a>
+</div>
+<div class="h_xlzhanshi" style="margin-left:13%">
+	<a href="{% url 'app:children' %}"><img src="/static/imgaes/afficheimg/1556068738109862476.jpg"></a>
+</div>
+<div class="h_xlzhanshi" style="margin-left:13%">
+	<a href="{% url 'app:zunai' %}"><img src="/static/imgaes/afficheimg/1457033830198279930.jpg"></a>
+</div>
+<script language="javascript" src="/static/js/jquery.SuperSlide.2.1.1.js"></script>
+<div class="sorad_list" style="overflow: hidden;">
+	<h4>更多精彩</h4>
+	<div id="aebiz_center02">
+		<ul>
+					</ul>
+	</div>
+	<div id="hll_right01" class="rightsor"></div>
+</div>
+<script type="text/javascript">
+//商品展示的自动播放
+jQuery("#aebiz_center02").slide({mainCell:"ul",prevCell:".prev-1",nextCell:".next-1",autoPage:true,effect:"left",autoPlay:true,vis:3});
+</script>
+<div class="blank"></div>
+
+
+
+
+
+<!-- <script language="JavaScript" src="http://www.holiland.com/statics/js/floatcard.js"></script> -->
+<!-- <script src="http://www.holiland.com/statics/js/all_20100501.js"></script> -->
+<script language="javascript" src="http://floatedu.tq.cn/floatcard?adminid=9654958&amp;sort=0"></script><script src="http://sysimagesedu.tq.cn/js/vip/all_20100501.js"></script><script language="javascript" src="http://sysimagesedu.tq.cn/js/vip/tqurl_config.js"></script><script language="javascript" src="http://sysimagesedu.tq.cn/js/vip/_all_20100501.js"></script><script id="TQGetrequestUser_JS"></script>
+<script id="TQGetIsNewMsg_JS"></script><script src="http://sysimagesedu.tq.cn/js/vip/100501/as.js"></script><object id="tq_as" name="tq_as" style="position:absolute;left:0px;top:-5px;" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="1" height="1"><param name="movie" value="http://sysimagesedu.tq.cn/js/vip/shareObject.swf"><param name="allowScriptAccess" value="always"><object id="tq_as2" name="tq_as2" style="position:absolute;left:0px;top:-5px;" type="application/x-shockwave-flash" data="http://sysimagesedu.tq.cn/js/vip/shareObject.swf" width="1" height="1"><param name="allowScriptAccess" value="always"></object></object>
+
+
+<script id="TQGetrequestUser_JS"></script>
+<script id="TQGetIsNewMsg_JS"></script>
+<!-- <script src="http://www.holiland.com/statics/js/as.js"></script> -->
+<object id="tq_as" name="tq_as" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="1" width="1">
+	<param name="movie" value="http://sysimages.edu.tq.cn/js/vip/shareObject.swf">
+	<param name="allowScriptAccess" value="always">
+	<object id="tq_as2" name="tq_as2" type="application/x-shockwave-flash" data="http://www.holiland.com/statics/shareObject.swf" height="1" width="1">
+		<param name="allowScriptAccess" value="always">
+	</object>
+</object>
+
+
+</div>
+
+{% endblock %}

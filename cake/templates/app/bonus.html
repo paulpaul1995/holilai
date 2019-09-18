@@ -1,0 +1,188 @@
+{% extends 'app/base.html' %}
+
+{% block css %}
+    <link href="http://www.holiland.com/statics/css/global.css" rel="stylesheet" type="text/css">
+<link href="http://www.holiland.com/statics/css/member.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="http://www.holiland.com/statics/js/jquery.min.js"></script>
+<script src="http://www.holiland.com/statics/js/layer/layer.js" ></script>
+<script src="http://www.holiland.com/statics/js/ajaxForm.js" ></script>
+<script src="http://www.holiland.com/statics/js/common.js" ></script>
+<style type="text/css">
+.paysubmit{float:left; margin-left:10px;cursor: pointer; border:none; display: block;height: 40px;line-height: 40px;text-align: center;width: 100px;background: none repeat scroll 0% 0% #87D0E3;font-size: 16px; color:#fff;}
+#syl_but{
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+  background: none repeat scroll 0% 0% #87D0E3;
+  font-size: 16px;
+  color: #fff;
+}
+</style>
+</head>
+
+{% endblock %}
+{% block body %}
+    <div class="hll_meb">
+
+	<div class="help_menu">
+<script type="text/javascript">
+$(document).ready(function(){
+	var objStr = ".help_menu div.tit span";
+	$(objStr).each(function(i){
+		$(this).click(function(){
+			$($(".help_menu div.tit")[i]).next("ul").slideToggle(20);
+			$(this).toggleClass("cur");
+			$(this).siblings("span").removeClass("cur");
+		});
+	});
+
+	$(".help_menu ul li").mouseover(function () {
+		$(this).addClass('Bg_hover');
+	});
+	$(".help_menu ul li").mouseout(function () {
+		$(this).removeClass('Bg_hover');
+	});
+});
+</script>
+
+	<div class="hll_meb_r">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<div class="hll_memDD">
+			<div class="tit">
+				<h3 class="meb_bt">我的优惠劵</h3>
+				<!-- <div class="hll_intro">
+					<label>您在本商城的可兑换积分为：<span> 100积分</span>&nbsp;&nbsp;<a href="user.php?act=exchange">我要兑换优惠券</a></label>
+				</div> -->
+			</div>
+		</div>
+		<!-- <div class="meb_bt_qh">
+			<ul>
+				<li class="xz" onclick="location.href='user.php?act=bonus'"><span>未使用优惠劵</span></li>
+				<li onclick="location.href='user.php?act=bonus&status=1'"><span>已使用优惠劵</span></li>
+			</ul>
+		</div> -->
+		<div class="hll_memDD hll_memList" style="overflow:visible;">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+
+					<tr>
+						<th><span>代金券名称</span></th>
+						<th width="16%"><span>号码</span></th>
+						<th width="15%"><span>购买金额下限</span></th>
+						<!-- <th width="15%"><span>使用开始日期</span></th> -->
+						<th width="18%">
+							<span></span>
+							<div class="div_select">
+								<b>有效期至</b>
+								<ul class="div_select_box">
+									<li>
+										<a href="http://www.holiland.com/user.php?act=bonus">默认</a>
+									</li>
+									<li>
+										<a href="http://www.holiland.com/user.php?act=bonus&sort=asc">升序</a>
+									</li>
+									<li>
+										<a href="http://www.holiland.com/user.php?act=bonus&sort=desc">降序</a>
+									</li>
+								</ul>
+							</div>
+						</th>
+						<th width="12%"><span>金额</span></th>
+						<th width="14%">
+							<span></span>
+							<div class="div_select">
+								<b>状态</b>
+								<ul class="div_select_box">
+									<li>
+										<a href="http://www.holiland.com/user.php?act=bonus">不限</a>
+									</li>
+									<li>
+										<a href="http://www.holiland.com/user.php?act=bonus&type=wsy">未使用</a>
+									</li>
+									<li>
+										<a href="http://www.holiland.com/user.php?act=bonus&type=ysy">已使用</a>
+									</li>
+								</ul>
+							</div>
+						</th>
+					</tr>
+										<tr>
+						<td colspan="6" style="color:red;text-align:center;padding-bottom:18px;"><b>无记录</b></td>
+					</tr>
+									</tbody>
+			</table>
+		</div>
+		<div class="meb_bt_qh" style="padding-top:10px; margin-top:10px; border:none;">
+			<form action="http://www.holiland.com/user.php" method="post" class="ajaxForm">
+			<input type="hidden" name="act" value="act_add_bonus" />
+			<input type="text" name="bonus_sn" value="请输入优惠券号" onblur="if (this.value == '') this.value = '请输入优惠券号';" onfocus="if (this.value == '请输入优惠券号') this.value ='';" style="border:1px solid #ccc; padding:2px; float:left; color:#999;height: 20px;" />
+			<input type="submit" name="" value="添加优惠券" class="submitbtn" data-ismsg="1" style="background:none;border:1px solid #ccc;; height:26px; border-left:none; color:#999; float:left;" />
+			</form>
+
+			<div class="hll_page hll_mebPage" style="padding:0">
+												<img src="http://www.holiland.com/statics/images/up.jpg">
+												<a href="http://www.holiland.com/user.php?act=bonus&page=1" class="xz">1</a>
+												<img src="http://www.holiland.com/statics/images/down.jpg">
+											</div>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$('.div_select').on('click', function(){
+					$('.div_select').find('ul').hide();
+					$(this).find('ul').show();;
+				});
+
+				$(document).bind('click', function(e){
+					var target = $(e.target);
+					if(target.closest(".div_select").length == 0){
+						$(".div_select_box").hide();
+					}
+					/*$('.div_select').html();
+					$(this).html();$.contains()*/
+				});
+			});
+		</script>
+
+
+		<!--#兑换优惠券页面 start>-->
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+
+{% endblock body %}

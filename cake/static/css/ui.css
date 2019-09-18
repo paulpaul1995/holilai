@@ -1,0 +1,14 @@
+@import "ui.base.css";
+@import "ui.theme.css";
+
+.Wdate{
+  border:1px solid #7dafe6;
+	height:15px;
+	background:#fff url(datePicker.gif) no-repeat right;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}
+.dz_lo{font-weight: bold;}

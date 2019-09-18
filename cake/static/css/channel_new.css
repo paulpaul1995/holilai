@@ -1,0 +1,371 @@
+.peisong {
+	MARGIN: 0px auto
+}
+.h_cakexl {
+	/*WIDTH: 996px;*/ width:500px; MARGIN: 0px auto; float:left;
+}
+.h_xlzhanshi {
+	WIDTH: 996px; MARGIN: 0px auto
+}
+.h_cakexl {
+	PADDING-TOP: 10px
+}
+.h_cakexl A {
+	COLOR: #626262
+}
+.h_cakexl P {
+	OVERFLOW: hidden; HEIGHT: 25px; LINE-HEIGHT: 25px
+}
+.h_cakexl P.h_xlhead A {
+	FONT-SIZE: 13px; FONT-WEIGHT: bold; MARGIN: 0px 5px; LETTER-SPACING: 1px
+}
+.h_cakexl P.h_xlhead SPAN {
+	MARGIN-LEFT: 10px
+}
+.h_cakexl P.h_xl {
+	MARGIN: 0px 0px 10px 5px
+}
+.h_cakexl P.h_xl A {
+	FONT-SIZE: 12px; MARGIN-LEFT: 10px
+}
+.h_cakexl P.h_xl A.h_fenl {
+	FONT-SIZE: 14px
+}
+.h_cakexl P.h_xl A.h_xlfir {
+	FONT-SIZE: 14px; MARGIN-RIGHT: 20px
+}
+.h_cakexl P.h_xl A.h_xlhide {
+	DISPLAY: none
+}
+.h_xlzhanshi {
+	MARGIN-BOTTOM: 10px
+}
+.h_xlzhanshi IMG {
+	HEIGHT: 341px; WIDTH: 996px; DISPLAY: block
+}
+.h_xilfenlei {
+	HEIGHT: 40px; FONT-FAMILY: "����"; WIDTH: 996px; /*BACKGROUND: #ededed; */CLEAR: both; MARGIN: 10px auto 0px
+}
+.h_xilfenlei1 {
+	MARGIN: 10px auto
+}
+.h_xilfenlei .h_fenleft {
+	HEIGHT: 35px; /*WIDTH: 996px;*/ width:260px; FLOAT: left; PADDING-LEFT: 20px; LINE-HEIGHT: 40px;
+}
+.right_{
+	margin-left:85%
+}
+.h_xilfenlei .h_fenleft A {
+	WIDTH: 55px; COLOR: #626262; TEXT-ALIGN: center; DISPLAY: inline-block
+}
+.h_xilfenlei .h_fenleft A I {
+	HEIGHT: 23px; WIDTH: 10px; VERTICAL-ALIGN: middle; 
+	
+	MARGIN-LEFT: 5px; DISPLAY: inline-block
+}
+.h_xilfenlei .h_fenleft A.h_price I {
+	BACKGROUND-POSITION: -21px 0px
+}
+.h_xilfenlei .h_fenright {
+	FLOAT: right; MARGIN: 4px 0px
+}
+.h_xilfenlei .h_fenright A {
+	/*BORDER-TOP: #ededed 1px solid; BORDER-RIGHT: #ededed 1px solid;*/ WIDTH: 30px; VERTICAL-ALIGN: middle;/* BORDER-BOTTOM: #ededed 1px solid;*/ COLOR: #626262; TEXT-ALIGN: center; MARGIN-LEFT: 1px; /*BORDER-LEFT: #ededed 1px solid;*/ DISPLAY: inline-block; LINE-HEIGHT: 30px
+}
+.h_xilfenlei .h_fenright A.line:hover {
+	/*BORDER-TOP: #ededed 1px solid; BORDER-RIGHT: #ededed 1px solid; BACKGROUND: #ededed; BORDER-BOTTOM: #ededed 1px solid; BORDER-LEFT: #ededed 1px solid*/
+}
+.h_xilfenlei .h_fenright A.h_active {
+	TEXT-DECORATION: none; /*BORDER-TOP: #d6d5d5 1px solid; BORDER-RIGHT: #d6d5d5 1px solid; BACKGROUND: #fff; BORDER-BOTTOM: #d6d5d5 1px solid; COLOR: #626262; BORDER-LEFT: #d6d5d5 1px solid*/
+}
+.h_xilfenlei .h_fenright A:hover {
+	TEXT-DECORATION: none; /*BORDER-TOP: #d6d5d5 1px solid; BORDER-RIGHT: #d6d5d5 1px solid; BACKGROUND: #fff; BORDER-BOTTOM: #d6d5d5 1px solid; COLOR: #626262; BORDER-LEFT: #d6d5d5 1px solid*/
+}
+.h_xilfenlei .h_fenright A.pp:hover {
+	BORDER-TOP: #ededed 1px solid; BORDER-RIGHT: #ededed 1px solid; BACKGROUND: #ededed; BORDER-BOTTOM: #ededed 1px solid; BORDER-LEFT: #ededed 1px solid
+}
+.h_xilfenlei .h_fenright A.nn:hover {
+	/*BORDER-TOP: #ededed 1px solid; BORDER-RIGHT: #ededed 1px solid; BACKGROUND: #ededed; BORDER-BOTTOM: #ededed 1px solid; BORDER-LEFT: #ededed 1px solid*/
+}
+.h_xilfenlei .h_fenright SPAN {
+	OVERFLOW: hidden; CURSOR: pointer; BORDER-TOP: #ededed 6px solid; HEIGHT: 0px; BORDER-RIGHT: #ededed 6px solid; WIDTH: 0px; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #ededed 6px solid; MARGIN: 0px 6px; BORDER-LEFT: #2093cc 6px solid; DISPLAY: inline-block
+}
+.h_xilfenlei .h_fenright A.h_active {
+	
+}
+.h_xilfenlei .h_fenright A:hover SPAN {
+	
+}
+.h_xilfenlei .h_fenright SPAN.pre {
+	background:#fff;BORDER-TOP-COLOR: #ededed; BORDER-LEFT-COLOR: #ededed; BORDER-BOTTOM-COLOR: #ededed; BORDER-RIGHT-COLOR: #d6d5d5
+}
+.h_xilfenlei .h_fenright A.pp SPAN.pre {
+	BORDER-TOP-COLOR: #ededed; BORDER-LEFT-COLOR: #ededed; BORDER-BOTTOM-COLOR: #ededed; BORDER-RIGHT-COLOR: #2093cc
+}
+.h_xilfenlei .h_fenright A.nn SPAN {
+	BORDER-TOP-COLOR: #ededed; BORDER-LEFT-COLOR: #d6d5d5; BORDER-BOTTOM-COLOR: #ededed; BORDER-RIGHT-COLOR: #ededed
+}
+.h_cakexq {
+	WIDTH: 996px; POSITION: relative; MARGIN: 10px auto 0px; /*Z-INDEX: 999*/
+}
+.h_cakexq .h_xqleft {
+	HEIGHT: 485px; WIDTH: 485px; POSITION: relative; FLOAT: left; Z-INDEX: 3333
+}
+.changeBox_a1 {
+	BORDER-TOP: #ddd 1px solid; HEIGHT: 485px; BORDER-RIGHT: #ddd 1px solid; WIDTH: 485px; BORDER-BOTTOM: #ddd 1px solid; POSITION: relative; MARGIN: 0px auto; BORDER-LEFT: #ddd 1px solid; Z-INDEX: 30
+}
+.changeBox_a1 A:hover {
+	TEXT-DECORATION: none
+}
+.changeBox_a1 IMG {
+	BORDER-TOP-STYLE: none; HEIGHT: 485px; WIDTH: 485px; VERTICAL-ALIGN: top; BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.changeBox_a1 .a_bigImg {
+	POSITION: absolute; FLOAT: left; LEFT: 0px; DISPLAY: none; TOP: 0px
+}
+.changeBox_a1 .a_last {
+	HEIGHT: 25px; FONT-FAMILY: "simsun"; WIDTH: 23px; BACKGROUND: url(../images/bj_4.png) no-repeat 0px -201px; POSITION: absolute; TEXT-ALIGN: center; LEFT: 15px; Z-INDEX: 999; LINE-HEIGHT: 25px; BOTTOM: 10px; transition: all 0.3s ease 0s
+}
+.changeBox_a1 .a_next {
+	HEIGHT: 25px; FONT-FAMILY: "simsun"; WIDTH: 23px; BACKGROUND: url(../images/bj_4.png) no-repeat 0px -166px; RIGHT: 15px; POSITION: absolute; TEXT-ALIGN: center; Z-INDEX: 999; LINE-HEIGHT: 25px; BOTTOM: 10px; transition: all 0.3s ease 0s
+}
+
+
+/* ���ù���������ʽ */
+.h_size2::-webkit-scrollbar {width: 12px;}
+/* ������ */
+.h_size2::-webkit-scrollbar-track {-webkit-box-shadow: inset 0 0 6px rgb(94, 122, 130);border-radius: 10px;}
+/* ���������� */
+.h_size2::-webkit-scrollbar-thumb {border-radius: 10px;background: rgba(135,208,227,0.1);-webkit-box-shadow: inset 0 0 6px rgba(32,147,204,0.5);}
+.h_size2::-webkit-scrollbar-thumb:window-inactive {background: rgba(32,147,204,1);}
+
+
+.wrap {
+	POSITION: relative; Z-INDEX: 998; TOP: 0px
+}
+.mousetrap {
+	WIDTH: 485px !important
+}
+.cloud-zoom-lens {
+	CURSOR: move; BACKGROUND-COLOR: #000
+}
+.cloud-zoom-big {
+	OVERFLOW: hidden; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid
+}
+DIV.num {
+	POSITION: absolute; LEFT: 45%; Z-INDEX: 3333; BOTTOM: 8px
+}
+DIV.num SPAN {
+	CURSOR: pointer; BORDER-TOP: #626262 1px solid; HEIGHT: 10px; BORDER-RIGHT: #626262 1px solid; WIDTH: 10px; BORDER-BOTTOM: #626262 1px solid; BORDER-LEFT: #626262 1px solid; DISPLAY: inline-block; MARGIN-RIGHT: 5px; border-radius: 50%
+}
+DIV.num SPAN.ad01 {
+	BORDER-TOP: #626262 1px solid; BORDER-RIGHT: #626262 1px solid; BACKGROUND: #626262; BORDER-BOTTOM: #626262 1px solid; BORDER-LEFT: #626262 1px solid
+}
+.h_cakexq .h_xqright {
+	OVERFLOW: hidden; WIDTH: 485px; FLOAT: right
+}
+.h_cakexq .h_xqright H2 {
+	OVERFLOW: hidden; FONT-SIZE: 20px; HEIGHT: 30px; WIDTH: 130px; FLOAT: left; COLOR: #2093cc
+}
+.h_cakexq .h_xqright SPAN.name {
+	OVERFLOW: hidden; HEIGHT: 60px; WIDTH: 300px; FLOAT: right; COLOR: #2093cc; TEXT-ALIGN: right
+}
+.h_cakexq .h_xqright SPAN.name H2 {
+	WIDTH: 100%
+}
+.h_cakexq .h_xqright SPAN.name P {
+	OVERFLOW: hidden; HEIGHT: 20px; WIDTH: 100%; DISPLAY: block
+}
+.h_cakexq .h_xqright IMG {
+	HEIGHT: 240px; WIDTH: 485px; VERTICAL-ALIGN: top
+}
+.h_cakexq .h_xqright .h_box {
+	OVERFLOW: hidden; WIDTH: 498px
+}
+.h_xqright .h_box .h_ss {
+	HEIGHT: 50px; WIDTH: 217px; BACKGROUND: #87d0e3; FLOAT: left; COLOR: #fff; TEXT-ALIGN: left; PADDING-LEFT: 20px; MARGIN: 12px 12px 0px 0px; LINE-HEIGHT: 50px
+}
+.h_xqright .h_box .h_ss_re {
+	POSITION: relative
+}
+.h_xqright .h_box DL DT {
+	FLOAT: left
+}
+.h_xqright .h_box DL DD {
+	FLOAT: left
+}
+.h_xqright .h_box .h_goumai {
+	CURSOR: pointer; BACKGROUND: #ffff00
+}
+.h_xqright .h_box .h_xq {
+	CURSOR: pointer; HEIGHT: 60px; BACKGROUND: #ededed
+}
+.h_xqright .h_box .h_goumai A {
+	WIDTH: 235px; COLOR: #626262; PADDING-LEFT: 89px; MARGIN-LEFT: -20px; DISPLAY: inline-block
+}
+.h_xqright .h_box .h_xq A {
+	WIDTH: 235px; COLOR: #626262; PADDING-LEFT: 89px; MARGIN-LEFT: -20px; DISPLAY: inline-block
+}
+.h_xqright .h_box .h_xq A {
+	PADDING-LEFT: 89px
+}
+.h_xqright .h_box .cart A {
+	HEIGHT: 20px; COLOR: #fff; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 20px; MARGIN: 10px 0px; DISPLAY: inline-block; LINE-HEIGHT: 20px; PADDING-RIGHT: 25px
+}
+.h_xqright .h_box .cart A.line {
+	PADDING-LEFT: 35px; BORDER-LEFT: #ededed 1px dashed
+}
+.h_xqright .h_box A:hover {
+	TEXT-DECORATION: none
+}
+.h_xqright .h_box .h_ss .h_shuxz {
+	MARGIN-LEFT: 40px; DISPLAY: inline-block
+}
+.h_xqright .h_box .h_ss .h_shuxz A {
+	CURSOR: pointer; BORDER-TOP: #fff 1px solid; HEIGHT: 25px; BORDER-RIGHT: #fff 1px solid; WIDTH: 25px; VERTICAL-ALIGN: middle; BORDER-BOTTOM: #fff 1px solid; COLOR: #fff; TEXT-ALIGN: center; MARGIN: 0px; BORDER-LEFT: #fff 1px solid; DISPLAY: inline-block; LINE-HEIGHT: 25px
+}
+.h_xqright .h_box .h_ss .h_shuxz INPUT {
+	BORDER-TOP-STYLE: none; HEIGHT: 27px; WIDTH: 27px; VERTICAL-ALIGN: middle; BACKGROUND: #fff; BORDER-BOTTOM-STYLE: none; COLOR: #4fa9d7; TEXT-ALIGN: center; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; DISPLAY: inline-block; LINE-HEIGHT: 27px
+}
+.h_xqright .h_box .h_ss SPAN {
+	CURSOR: pointer; HEIGHT: 25px; WIDTH: 158px; BACKGROUND: #fff; COLOR: #4fa9d7; PADDING-BOTTOM: 0px; TEXT-ALIGN: left; PADDING-TOP: 0px; PADDING-LEFT: 9px; MARGIN: 13px 0px 0px 5px; DISPLAY: inline-block; LINE-HEIGHT: 25px; PADDING-RIGHT: 3px
+}
+.h_xqright .h_box .h_ss SPAN B {
+	FONT-WEIGHT: normal
+}
+.h_xqright .h_box .h_ss I {
+	HEIGHT: 22px; WIDTH: 12px; BACKGROUND: url(../images/bj_1.png) -38px 0px; RIGHT: 20px; POSITION: absolute; DISPLAY: inline-block; TOP: 15px
+}
+.h_xqright .h_box .h_size {
+	OVERFLOW: auto; CURSOR: pointer; WIDTH: 170px; HEIGHT:30px; BACKGROUND: #f6f6f6; POSITION: absolute; TEXT-ALIGN: left; LEFT: 51px; Z-INDEX: 3; DISPLAY: none; TOP: 38px
+}
+.h_xqright .h_box .h_size2 {
+	HEIGHT: 75px; /*WIDTH: 142px;*/ OVERFLOW-Y: scroll;/* MARGIN-LEFT: 26px*/
+}
+.h_xqright .h_box .h_size P {
+	OVERFLOW: hidden; FONT-SIZE: 12px; COLOR: #4fa9d7; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 9px; DISPLAY: block; LINE-HEIGHT: 24px; PADDING-RIGHT: 3px
+}
+.h_xqright .h_box .h_size P:hover {
+	BACKGROUND: #4fa9d7; COLOR: #fff
+}
+.h_xqright .h_box .h_size P LABEL {
+	FLOAT: left; MARGIN-RIGHT: 10px
+}
+.h_xqright .h_box .h_size P FONT {
+	FLOAT: right; PADDING-RIGHT: 10px
+}
+.h_add {
+	BORDER-TOP: #d6d5d5 1px solid; HEIGHT: 154px; BORDER-RIGHT: #d6d5d5 1px solid; WIDTH: 330px; BACKGROUND: #fff; BORDER-BOTTOM: #d6d5d5 1px solid; POSITION: absolute; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; CLEAR: both; LEFT: 30%; BORDER-LEFT: #d6d5d5 1px solid; Z-INDEX: 9999; DISPLAY: none; TOP: 136px; PADDING-RIGHT: 0px
+}
+.h_add h3{ background: url('../images/1.png') 98% no-repeat ; width:100%;height: 22px;text-align: right;}
+.h_add P {
+	HEIGHT: 29px; BORDER-BOTTOM: #d6d5d5 1px solid
+}
+.h_add P SPAN {
+	HEIGHT: 28px; WIDTH: 25px; VERTICAL-ALIGN: middle; BACKGROUND: url(../images/2.png) no-repeat; MARGIN: 2px 5px 0px 20px; DISPLAY: inline-block
+}
+.h_add .h_cart {
+	HEIGHT: 55px; PADDING-BOTTOM: 25px; PADDING-TOP: 25px; PADDING-LEFT: 16px; PADDING-RIGHT: 16px
+}
+.h_add .h_cart A {
+	FONT-SIZE: 16px; HEIGHT: 50px; WIDTH: 127px; BACKGROUND: #87d0e3; FLOAT: left; COLOR: #fff; TEXT-ALIGN: center; MARGIN: 0px 10px; LINE-HEIGHT: 50px
+}
+.h_add .h_cart A:hover {
+	TEXT-DECORATION: none
+}
+.h_collect .h_cart A {
+	WIDTH: 278px
+}
+.detail_xx {
+	OVERFLOW: hidden; WIDTH: 936px; BACKGROUND: #ededed; PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 30px; CLEAR: both; MARGIN: 0px auto 20px; LINE-HEIGHT: 25px; PADDING-RIGHT: 30px
+}
+.detail_xx DIV.line {
+	OVERFLOW: hidden; FONT-SIZE: 16px; FONT-FAMILY: "����"; WIDTH: 100%; BORDER-BOTTOM: #87d0e3 1px dashed; PADDING-BOTTOM: 12px; PADDING-TOP: 12px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px
+}
+.detail_xx DIV SPAN.bt {
+	FONT-SIZE: 24px; COLOR: #4fa9d7; DISPLAY: block
+}
+.detail_xx DIV SPAN.star {
+	OVERFLOW: hidden; HEIGHT: 17px; WIDTH: 85px; VERTICAL-ALIGN: middle; BACKGROUND: url(../images/xj.png) no-repeat -7px -22px; DISPLAY: inline-block
+}
+.detail_xx DIV SPAN.star SPAN {
+	HEIGHT: 17px; VERTICAL-ALIGN: top; BACKGROUND: url(../images/xj.png) no-repeat -7px -4px; DISPLAY: inline-block
+}
+.detail_xx DIV LABEL {
+	COLOR: #4fa9d7
+}
+
+@media Unknown    
+{
+.detail_xx DIV SPAN.star {
+	MARGIN-TOP: -2px
+}
+    }
+.aler {
+	WIDTH: 996px; MARGIN: 0px auto; positive: relative
+}
+.h_xz {
+	BORDER-TOP: #d6d5d5 1px solid; BORDER-RIGHT: #d6d5d5 1px solid; BACKGROUND: #fff; BORDER-BOTTOM: #d6d5d5 1px solid; POSITION: absolute; PADDING-BOTTOM: 10px; PADDING-TOP: 10px; PADDING-LEFT: 0px; CLEAR: both; LEFT: 35%; BORDER-LEFT: #d6d5d5 1px solid; Z-INDEX: 9999; DISPLAY: none; TOP: 308px; PADDING-RIGHT: 0px;  width: 350px;
+}
+.h_xz P {
+	FONT-SIZE: 16px;font-weight: bold; BORDER-BOTTOM: #d6d5d5 1px solid; PADDING-BOTTOM: 5px; TEXT-ALIGN: center; PADDING-TOP: 5px; PADDING-LEFT: 30px; LINE-HEIGHT: 30px; PADDING-RIGHT: 30px
+}
+.h_xz A {
+	FONT-SIZE: 16px; HEIGHT: 40px; WIDTH: 127px; BACKGROUND: #87d0e3; COLOR: #fff; TEXT-ALIGN: center; MARGIN: 0px 10px; DISPLAY: inline-block; LINE-HEIGHT: 40px
+}
+.h_xz .h_cart {
+	TEXT-ALIGN: center; MARGIN: 20px 0px 10px
+}
+.h_xz A:hover {
+	TEXT-DECORATION: none
+}
+.sdcg {
+	LEFT: 35%; TOP: 308px
+}
+.xdl {
+	LEFT: 39%; TOP: 306px
+}
+.h_size2:unknown {
+	WIDTH: 12px
+}
+.h_size2:unknown {
+	-webkit-box-shadow: inset 0 0 6px rgba(135,208,227,1); border-radius: 10px
+}
+.h_size2:unknown {
+	-webkit-box-shadow: inset 0 0 6px rgba(32,147,204,0.5); border-radius: 10px
+}
+.h_size2:unknown {
+	
+}
+
+//�������
+.h_cakex {
+	PADDING-TOP: 10px;WIDTH: 910px; /*width:500px;*/ MARGIN: 0px auto; //float:left;
+}
+.h_cakex A {
+	COLOR: #626262
+}
+.h_cakex P {
+	OVERFLOW: hidden; HEIGHT: 25px; LINE-HEIGHT: 25px
+}
+.h_cakex P.h_xlheads A {
+	FONT-SIZE: 13px; FONT-WEIGHT: bold; MARGIN: 0px 5px; LETTER-SPACING: 1px
+}
+.h_cakex P.h_xlheads SPAN {
+	MARGIN-LEFT: 10px
+}
+.h_cakex P.h_xl {
+	MARGIN: 0px 0px 10px 5px
+}
+.h_cakex P.h_xl A {
+	FONT-SIZE: 12px; MARGIN-LEFT: 0px
+}
+.h_cakex P.h_xl A.h_fenl {
+	FONT-SIZE: 14px
+}
+.h_cakex P.h_xl A.h_xlfir {
+	FONT-SIZE: 14px; MARGIN-RIGHT: 20px
+}
+.h_cakex P.h_xl A.h_xlhide {
+	DISPLAY: none
+}

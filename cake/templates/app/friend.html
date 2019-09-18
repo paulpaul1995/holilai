@@ -1,0 +1,154 @@
+{% extends 'app/base.html' %}
+{% block css %}
+    <link href="http://www.holiland.com/statics/css/global.css" rel="stylesheet" type="text/css">
+<link href="http://www.holiland.com/statics/css/member.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="http://www.holiland.com/statics/js/jquery.min.js"></script>
+<script src="http://www.holiland.com/statics/js/layer/layer.js" ></script>
+<script src="http://www.holiland.com/statics/js/ajaxForm.js" ></script>
+<script src="http://www.holiland.com/statics/js/common.js" ></script>
+<style type="text/css">
+.paysubmit{float:left; margin-left:10px;cursor: pointer; border:none; display: block;height: 40px;line-height: 40px;text-align: center;width: 100px;background: none repeat scroll 0% 0% #87D0E3;font-size: 16px; color:#fff;}
+#syl_but{
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+  background: none repeat scroll 0% 0% #87D0E3;
+  font-size: 16px;
+  color: #fff;
+}
+</style>
+
+{% endblock %}
+
+{% block body %}
+    <div class="hll_meb">
+
+		<div class="hll_meb_l">
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>业务功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:order' %} ">查看订单</a></li>
+			<li><a href="{% url 'app:favorite' %} ">收藏夹</a></li>
+			<li><a href="{% url 'app:friend' %} ">我的亲友</a></li>
+			<li><a href="{% url 'app:address' %} ">收货地址簿</a></li>
+			<li><a href="{% url 'app:integral' %} ">我的积分</a></li>
+			<li><a href="{% url 'app:bonus' %} ">我的优惠券</a></li>
+			<!-- <li><a href="user.php?act=exchange">兑换优惠券</a></li> -->
+			<!-- <li><a href="user.php?act=return">退换货申请</a></li> -->
+			<li><a href="{% url 'app:message' %} ">投诉和建议</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>个人信息</h3></div>
+		<ul>
+			<li><a href="{% url 'app:changem' %} ">更换手机号</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">修改密码</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">编辑用户信息</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>其他功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:index' %}" class="opAjax" data-confirm="0" data-ismsg="1">退出</a></li>
+			<li><a href="{% url 'app:user' %}">返回帐户首页</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var objStr = ".help_menu div.tit span";
+	$(objStr).each(function(i){
+		$(this).click(function(){
+			$($(".help_menu div.tit")[i]).next("ul").slideToggle(20);
+			$(this).toggleClass("cur");
+			$(this).siblings("span").removeClass("cur");
+		});
+	});
+
+	$(".help_menu ul li").mouseover(function () {
+		$(this).addClass('Bg_hover');
+	});
+	$(".help_menu ul li").mouseout(function () {
+		$(this).removeClass('Bg_hover');
+	});
+});
+</script>
+
+	<div class="hll_meb_r">
+
+
+
+
+
+
+
+
+
+
+
+				<div class="hll_memDD">
+			<div class="tit">
+				<h3 class="meb_bt">我的亲友团</h3>
+				<div class="hll_intro">
+										您还未设置亲友团，现在去&nbsp;<a href="http://www.holiland.com/user.php?act=addFriend">添加</a>！
+									</div>
+			</div>
+		</div>
+		<form name="rFriendsForm" method="post" action="/fg/usercenter/relativesFrinends.do" style="margin-bottom:0; margin-left:0; margin-right:0; margin-top:0"><input name="actionType" value="list" type="hidden">
+			<input name="pageType" value="" type="hidden">
+			<input name="maxRecNoPerPage" value="20" type="hidden">
+			<input name="recordNumber" value="0" type="hidden">
+			<input name="toPage" type="hidden">
+			<input name="currentPageNo" value="1" type="hidden">
+			<div class="hll_memDD hll_memList">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<th class="text_10" width="10%">序号</th>
+							<th><span>姓名</span></th>
+							<!-- <th width="17%"><span>称呼</span></th> -->
+							<th width="20%"><span>生日</span></th>
+							<th width="20%"><span>手机</span></th>
+							<th width="15%"><span>审核状态</span></th>
+							<th width="12%"><span>操作</span></th>
+						</tr>
+												<tr>
+							<td colspan="7">您没有添加任何亲友关系</td>
+						</tr>
+											</tbody>
+				</table>
+			</div>
+		</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!--#兑换优惠券页面 start>-->
+
+
+
+
+
+
+
+	</div>
+</div>
+
+
+{% endblock body %}

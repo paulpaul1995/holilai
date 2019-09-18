@@ -1,0 +1,1133 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    {#{%  %}#}
+    {% block meta %}
+        <meta name="Generator" content="IWCHINA v2.7.3"/>
+        <meta name="renderer" content="webkit"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="x-ua-compatible" content="ie=7"/>
+        <meta name="360-site-verification" content="8bd7b12e2332a22b927168dfa420bd68"/>
+        <meta name="Keywords" content="好利来，好利来官网，好利来网购蛋糕，好利来蛋糕，好利来艺术蛋糕，蛋糕，蛋糕送货，蛋糕订购，好利来蛋糕店"/>
+        <meta name="Description" content="好利来蛋糕全新升级,防腐剂0添加,精选全球优质食材,3小时急速送达,邂逅美味,尽在好利来!23年来只为您,客服电话400-700-5999"/>
+        <meta property="qc:admins" content="36005605056074141646375"/>
+
+    {% endblock meta %}
+
+    {% block title %}
+        <title>好利来蛋糕官网__蛋糕3小时急送达__口感不满即可退货</title>
+    {% endblock %}
+
+    {% block css %}
+        <link href="http://www.holiland.com/statics/css/global.css" rel="stylesheet" type="text/css">
+        <LINK rel=stylesheet type=text/css href="http://www.holiland.com/statics/css/ui.all.css">
+        <link href="http://www.holiland.com/statics/css/ui.css" rel="stylesheet" type="text/css">
+        <link href="http://www.holiland.com/statics/css/WdatePicker.css" type="text/css" rel="stylesheet">
+        <link href="http://www.holiland.com/statics/css/jiathis_share.css" type="text/css" rel="stylesheet">
+        <link href="http://www.holiland.com/statics/css/index.css" rel="stylesheet" type="text/css">
+        <link href="http://www.holiland.com/statics/css/channel.css" rel="stylesheet" type="text/css">
+    {% endblock %}
+
+
+    {% block script %}
+        <script language="JavaScript" src="/static/js/jquery-1.js"></script>
+        <script language="JavaScript" src="/static/js/jquery-ui-1.js"></script>
+        <script language="JavaScript" src="/static/js/jquery.js"></script>
+        <script language="JavaScript" src="/static/js/ScrollPic_002.js"></script>
+        <script language="JavaScript" src="/static/js/soChange_002.js"></script>
+        <script language="JavaScript" src="/static/js/jquery.SuperSlide.2.1.1.js"></script>
+    {% endblock %}
+
+
+</head>
+<body>
+<script type="text/javascript">
+    var area_def = "0";
+
+    function selectmap(comId, re_id) {
+        if (re_id === '') {
+            layer.alert('请选择城市。')
+        }
+        //var str=document.getElementById("area_"+re_id).innerHTML;
+        var str = $('.newChangeCity').find('font').html();
+        if (comId == 1) {
+            document.getElementById("area_self").innerHTML = "<i></i>" + str;
+            //document.cookie= "AREA_ID=" +re_id;//城市id
+            //document.cookie= "AREA_def=" +0;//是否是默认城市
+            //document.mapForm.comId.value = re_id;
+            //document.mapForm.submit();
+            $.get('/index.php', {act: 'setCity', 're_id': re_id, 'area_def': 0}, function () {
+                location.reload();
+            });
+        } else {
+            $("#show").toggle();
+            $('.h_dzxz').toggle();
+            $('#masterdiv').toggle();
+        }
+    }
+</script>
+<div id="masterdiv"
+     style="display:none; width:100%; height:100%; position:absolute; background:#000; z-index:1000000; opacity:0.4"></div>
+<div class="h_head">
+    <h1 class="ll"><a href="http://www.holiland.com/">
+        <img src="http://www.holiland.com/statics/images/logo.png"></a>
+    </h1>
+    <div class="head_right head_right_new">
+        <div class="h_login" style="margin-top:-8px; margin-bottom:8px;">
+            <!-- <span class="mes"><a href="http://www.holiland.com/message.php" title="联系我们"></a></span> -->
+
+            {% if user.is_authenticated %}
+                <label><a href="{% url 'app:logout' %}"
+                          style="text-decoration: none;">[退出]</a></label>
+                <div class="qqq">
+                    <a href="{% url 'app:user' %}" style="text-decoration: none;">Hi, {{ user.username }} </a>
+                </div>
+            {% else %}
+                <label>
+                    <a href="{% url 'app:login' %}" style="text-decoration: none;">登录</a>
+                    <a href="{% url 'app:register' %}" style="margin-left:20px;text-decoration: none;">注册</a>
+                </label>
+            {% endif %}
+
+
+            <span id="productCountsAndTotoalId" class="car" style="position: relative;">
+                            <a href="http://www.holiland.com/flow.php" title="购物车" style="text-decoration: none;">
+                                <b id="good_count">0</b>件<b id="cart_total_price"
+                                                            style="position:absolute;top:-8px;left:0;"></b>
+                            </a>
+                        </span>
+            <label class="dz_lo" id="area_self"
+                   style="width:auto; overflow:hidden; float:right; margin-top:0; margin-right:20px;"><a
+                    href="javascript:;" style="text-decoration: none;">
+                <i style="margin-right:0;padding-right:8px;"></i>北京</a>
+            </label>
+        </div>
+
+        <div class="h_dizhi">
+            <div id="show" class="h_hadd" style="display:none;z-index:999999999;left:100px;">
+                <h3></h3>
+                <p>新版官网蛋糕仅支持北京、成都地区网上购买，其他城市敬请</p>
+                <!-- <p>新版官网蛋糕仅支持北京地区网上购买，其他城市敬请</p> -->
+                <p class="line">期待。即将为您跳转至好利来买蛋糕网选购实体店蛋糕...</p>
+                <div class="h_cart">
+                    <span>是否跳转？</span>
+                    <a href="http://www.maidangao.com/" class="queding" target="_blank">跳转</a>
+                    <a href="javascript:void();;" class="quxiao">留在当前页面</a>
+                </div>
+            </div>
+            <div class="h_dzxz"
+                 style="z-index:1000001;width:380px; height:204px; padding:20px 10px;left:140px;top:180px;">
+                <div style="text-align:center; width:100%"><img src="/static/images/selectcitylogo.jpg" width="80"
+                                                                height="80"></div>
+                <div style="width:100%; margin-top:10px; border-bottom:1px solid #6bc4df; color:#6bc4df; height:45px; line-height:45px; text-align:center; font-size:14px;">
+                    欢迎来到好利来，请根据您所在的城市选择收货地点
+                </div>
+                <div style="width:100%; text-align:center; line-height:80px;">
+					<span class="newChangeCity" cityid="52" network="1"><font>北京</font> <img
+                            src="/static/images/cityjiant.png" width="12"
+                            style="float:right;margin-right:10px;margin-top:12px;"/>
+						<ul class="newProvince">
+														<li class="cityshover">北京																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="52" network="1">北京</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">四川																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3420" network="1">成都</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4328" network="1">绵阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4329" network="1">自贡</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4330" network="1">攀枝花</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4331" network="1">泸州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4332" network="1">德阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4333" network="1">广元</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4334" network="1">遂宁</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4335" network="1">内江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4336" network="1">乐山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4337" network="1">资阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4338" network="1">宜宾</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4339" network="1">南充</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4340" network="1">达州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4341" network="1">雅安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4342" network="1">广安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4343" network="1">巴中</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4344" network="1">眉山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="5943" network="0">西昌</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">河北																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3426" network="1">石家庄</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4098" network="1">唐山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4099" network="1">秦皇岛</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4100" network="1">邯郸</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4101" network="1">邢台</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4102" network="1">保定</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4103" network="1">张家口</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4104" network="1">承德</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4105" network="1">沧州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4106" network="1">廊坊</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4107" network="1">衡水</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="5825" network="1">武安</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">天津																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3502" network="1">天津</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3503" network="1">塘沽</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">辽宁																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3474" network="1">沈阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3475" network="1">大连</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3476" network="1">本溪</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3478" network="1">鞍山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3482" network="1">盘锦</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3483" network="1">抚顺</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4165" network="1">丹东</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4166" network="1">锦州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4167" network="1">营口</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4168" network="1">阜新</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4169" network="1">辽阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4170" network="1">铁岭</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4171" network="1">朝阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4172" network="1">葫芦岛</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="5932" network="1">大连金州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="6652" network="0">辽阳市</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="6653" network="0">甘肃</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">吉林																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3471" network="1">长春</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4173" network="1">吉林</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4174" network="1">四平</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4175" network="1">辽源</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4176" network="1">通化</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4177" network="1">白山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4178" network="1">松原</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4179" network="1">白城</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">黑龙江																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3467" network="1">哈尔滨</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3468" network="1">牡丹江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4180" network="0">齐齐哈尔</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4181" network="1">鹤岗</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4182" network="1">双鸭山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4183" network="1">鸡西</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4184" network="1">大庆</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4185" network="1">伊春</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4186" network="1">佳木斯</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4187" network="1">七台河</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4188" network="1">黑河</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4189" network="1">绥化</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">陕西																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="3450" network="1">西安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4398" network="1">宝鸡</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4399" network="1">咸阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4400" network="1">渭南</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4401" network="1">铜川</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4402" network="1">延安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4403" network="1">榆林</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4404" network="1">安康</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4405" network="1">汉中</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4406" network="1">商洛</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4407" network="1">杨陵</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">山西																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4109" network="1">太原</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4110" network="1">大同</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4111" network="1">朔州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4112" network="1">阳泉</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4113" network="1">长治</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4114" network="1">晋城</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4115" network="1">忻州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4116" network="1">晋中</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4117" network="1">临汾</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4118" network="1">运城</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4119" network="1">吕梁</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">山东																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4130" network="1">济南</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4131" network="1">青岛</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4132" network="1">淄博</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4133" network="1">枣庄</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4134" network="1">东营</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4135" network="1">烟台</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4136" network="1">潍坊</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4137" network="1">济宁</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4138" network="1">泰安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4139" network="1">威海</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4140" network="1">日照</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4141" network="1">莱芜</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4142" network="1">临沂</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4143" network="1">德州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4144" network="1">聊城</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4145" network="1">滨州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4146" network="1">菏泽</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">河南																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4147" network="1">郑州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4148" network="1">开封</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4149" network="1">洛阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4150" network="1">平顶山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4151" network="1">安阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4152" network="1">鹤壁</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4153" network="1">新乡</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4155" network="1">焦作</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4156" network="1">濮阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4157" network="1">许昌</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4158" network="1">漯河</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4159" network="1">三门峡</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4160" network="1">南阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4161" network="1">商丘</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4162" network="1">信阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4163" network="1">周口</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4164" network="1">驻马店</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">江苏																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4190" network="1">南京</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4191" network="1">无锡</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4192" network="1">徐州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4193" network="1">常州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4194" network="1">苏州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4195" network="1">南通</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4196" network="1">连云港</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4197" network="1">淮安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4198" network="1">盐城</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4199" network="1">扬州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4200" network="1">镇江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4201" network="1">泰州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4202" network="1">宿迁</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="6682" network="1">昆山</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">浙江																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4203" network="1">杭州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4204" network="1">宁波</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4205" network="1">温州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4207" network="1">湖州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4208" network="1">绍兴</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4209" network="1">金华</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4210" network="1">衢州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4211" network="1">舟山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4212" network="1">台州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4213" network="1">丽水</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">安徽																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4214" network="1">合肥</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4215" network="1">芜湖</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4216" network="1">蚌埠</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4217" network="1">淮南</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4218" network="1">马鞍山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4219" network="1">淮北</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4220" network="1">铜陵</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4221" network="1">安庆</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4222" network="1">黄山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4223" network="1">滁州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4224" network="1">阜阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4225" network="1">宿州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4226" network="1">巢湖</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4227" network="1">六安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4228" network="1">亳州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4229" network="1">池州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4230" network="1">宣城</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">江西																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4231" network="1">南昌</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4232" network="1">景德镇</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4233" network="1">萍乡</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4234" network="1">九江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4235" network="1">新余</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4236" network="1">鹰潭</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4237" network="1">赣州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4238" network="1">吉安</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4239" network="1">宜春</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4240" network="1">抚州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4241" network="1">上饶</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">湖北																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4251" network="1">武汉</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4252" network="1">黄石</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4253" network="1">十堰市</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4254" network="1">荆州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4255" network="1">宜昌</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4256" network="1">襄樊</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4257" network="1">鄂州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4258" network="1">荆门</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4259" network="1">孝感</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4260" network="1">黄冈</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4261" network="1">咸宁</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4262" network="1">随州</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">重庆																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4280" network="1">重庆</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">上海																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4263" network="1">上海</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">湖南																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4346" network="1">长沙</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4347" network="1">株洲</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4348" network="1">湘潭</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4349" network="1">衡阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4350" network="1">邵阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4351" network="1">岳阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4352" network="1">常德</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4353" network="1">张家界</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4354" network="1">益阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4355" network="1">娄底</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4356" network="1">郴州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4357" network="1">永州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4358" network="1">怀化</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">广东																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4360" network="1">广州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4361" network="1">深圳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4362" network="1">珠海</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4363" network="1">汕头</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4364" network="1">佛山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4365" network="1">韶关</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4366" network="1">湛江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4367" network="1">肇庆</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4369" network="1">茂名</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4370" network="1">惠州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4371" network="1">梅州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4372" network="1">汕尾</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4373" network="1">河源</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4374" network="1">阳江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4375" network="1">清远</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4376" network="1">东莞</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4377" network="1">中山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4378" network="1">潮州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4379" network="1">揭阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4380" network="1">云浮</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">贵州																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4382" network="1">贵阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4383" network="1">六盘水</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4384" network="1">遵义</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4385" network="1">安顺</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4386" network="1">毕节</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4387" network="1">铜仁</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">云南																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4389" network="1">昆明</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4390" network="0">曲靖</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4391" network="0">玉溪</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4392" network="0">昭通</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4393" network="0">保山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4394" network="0">丽江</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4395" network="0">普洱</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4396" network="0">临沧</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">甘肃																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4409" network="1">兰州</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4410" network="1">嘉峪关</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4411" network="1">金昌</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4412" network="1">白银</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4413" network="1">天水</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4414" network="1">酒泉</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4415" network="1">张掖</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4416" network="1">武威</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4417" network="1">定西</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4418" network="1">陇南</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4419" network="1">平凉</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4420" network="1">庆阳</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4421" network="1">临夏</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">宁夏																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4423" network="1">银川</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4424" network="1">石嘴山</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4425" network="1">吴忠</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4426" network="1">固原</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4427" network="1">中卫</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">内蒙古																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4444" network="1">呼和浩特</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4445" network="1">包头</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4446" network="1">乌海</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4447" network="1">赤峰</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4449" network="1">通辽</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4450" network="1">鄂尔多斯</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4451" network="1">呼伦贝尔</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4452" network="1">巴彦淖尔</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4453" network="1">乌兰察布</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4454" network="1">兴安盟</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4455" network="1">锡林郭勒</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="4456" network="1">阿拉善盟</a></li>
+																	</ul>
+															</li>
+														<li class="cityshover">西藏																<ul
+                                                                class="newCity">
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="6650" network="0">拉萨市</a></li>
+																		<li><a href="javascript:;" class="changeCity"
+                                                                               cityid="6651" network="0">山南市</a></li>
+																	</ul>
+															</li>
+													</ul>
+					</span>
+                    <a class="sureChangeCity" href="javascript:;"
+                       style="width:100px;display:inline-block;height:35px;font-size:14px;line-height:35px;background:#ffff00;color:#626262; border-radius:3px; text-align:center; margin-left:45px;text-decoration:none;">确定进入</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="baner">
+            <ul>
+                <li class="navmenu">
+                    <a href="{% url 'app:all' %}">
+                        <span>All Products</span>
+                        <span>全部产品</span>
+                    </a>
+                </li>
+                <li class="navmenu">
+                    <a href="{% url 'app:cake' %}">
+                        <span>Cake Series</span>
+                        <span>蛋糕系列</span>
+                    </a>
+                    <ul class="sub_nav" style="display:none;">
+                        <li style="border-bottom:none;"><a href="{% url 'app:classics' %}">经典系列</a></li>
+                        <li style="border-bottom:none;"><a href="{% url 'app:children' %}">儿童系列</a></li>
+                        <li style="border-bottom:none;"><a href="{% url 'app:zunai' %}">尊爱系列</a></li>
+                    </ul>
+                </li>
+                <li class="navmenu">
+                    <a href="{% url 'app:snacks' %}">
+                        <span>Wagashi</span>
+                        <span>零食糕点</span>
+                    </a>
+                </li>
+                <li class="navmenu" style="border:none;">
+                    <a href="{% url 'app:we' %}">
+                        <span>About Us</span>
+                        <span>关于我们</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="h_phone"><img src="/static/imgaes/imgs/phone_icon.png" height="15"/> 400-700-5999</div>
+        <div class="h_navserch">
+            <script type="text/javascript">
+                function searchSubmitForm() {
+                    var keywd = $("input[name=keywords]").val();
+                    if (keywd == '') {
+                        alert("请输入搜索关键字");
+                        $("input[name=keywords]").focus();
+                        return;
+                    }
+                    $("#searchform").submit();
+                }
+            </script>
+            <form name="psForm" id="searchform" method="GET" action="/search.php">
+                <input length="20" style="color:#999" name="keywords" maxlength="80" type="text">
+                <a href="javascript:searchSubmitForm();"></a>&nbsp;
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        var webheight = document.body.scrollHeight;
+        $('#masterdiv').css('height', webheight);
+        if (area_def == 1) {
+            $(".h_dizhi .h_dzxz").show();
+            $('#masterdiv').show();
+        }
+        $(".hll_nav li").mouseover(function () {
+            $(this).addClass('li_hover');
+        });
+        $(".hll_nav li.sy_nav").mouseover(function () {
+            $(this).addClass('sy_hover');
+        });
+        $(".hll_nav li").mouseout(function () {
+            $(this).removeClass('li_hover');
+        });
+        $(".hll_nav li.sy_nav").mouseout(function () {
+            $(this).removeClass('sy_hover');
+        });
+        $(".dz_xz span").click(function () {
+            $(".h_dizhi .h_dzxz").show();
+            $('#masterdiv').show();
+        });
+        $(" .h_dzhead span,.h_dizhi .h_zdclose span").click(function () {
+            $(".h_dizhi .h_dzxz").hide();
+            $('#masterdiv').hide();
+        });
+        $(".h_rmdz a,.h_dzll .h_dzlist a").click(function () {
+            $(".h_dizhi .h_dzxz").hide();
+            $('#masterdiv').hide();
+        });
+        $('.dz_lo').click(function () {
+            $(".h_dizhi .h_dzxz").show();
+            $('#masterdiv').show();
+        });
+        var $liArr = $(".h_dizhi .h_dzxz .h_dzcontent .h_dzlist a");
+        $liArr.mouseover(function () {
+            $liArr.removeClass("dz_active");
+            $(this).addClass("dz_active");
+        });
+        //城市选择的跳转
+        $(".h_hadd .h_cart a.queding").click(function () {
+            $(".h_dizhi .h_dzxz").hide();
+            $(".h_hadd").hide();
+            $('#masterdiv').show();
+        })
+        $(".h_hadd .h_cart a.quxiao,.h_hadd h3").click(function () {
+            $(".h_hadd").hide();
+        })
+        $("img").removeAttr('title');
+        $("a").removeAttr('title');
+        $('.searchCity').click(function () {
+            var cityKey = $('input[name="areaName"]').val();
+            if (cityKey.length == 0 || cityKey == '输入城市名回车') {
+                alert('请输入城市关键词');
+                return false;
+            }
+            $.get('/index.php', {act: 'searchCity', 'areaName': cityKey}, function (data) {
+                if (data == 'fail') {
+                    alert('没有开启该城市');
+                }
+                location.reload();
+            });
+            return false;
+        });
+        $('.navmenu').hover(function () {
+            $(this).find('.sub_nav').show();
+        }, function () {
+            $('.sub_nav').hide();
+        });
+        /*$('.newChangeCity').hover(function(){
+            $(this).find('.newProvince').show();
+        }, function(){
+            $(this).find('.newProvince').hide();
+        });
+        $('.cityshover').hover(function(){
+            $(this).find('ul').show();
+        }, function(){
+            $(this).find('ul').hide();
+        });*/
+        var cleartime1 = cleartime2 = null;
+        $('.newChangeCity').hover(function () {
+            $(this).find('.newProvince').show();
+            if (cleartime) {
+                clearTimeout(cleartime);
+            }
+        }, function () {
+            var $self = $(this);
+            cleartime = setTimeout(function () {
+                $self.find('.newProvince').hide();
+            }, 700);
+        });
+        $('.cityshover').hover(function () {
+            $('.newCity').hide();
+            $('.cityshover').removeClass('active');
+            if (cleartime2) {
+                clearTimeout(cleartime2);
+            }
+            if (cleartime1) {
+                clearTimeout(cleartime1);
+            }
+            $(this).addClass('active');
+            $(this).find('ul').show();
+        }, function () {
+            $(this).removeClass('active');
+            $(this).find('ul').hide();
+        });
+        $('.newCity').hover(function () {
+            if (cleartime2) {
+                clearTimeout(cleartime2);
+            }
+        }, function () {
+            var $self = $(this);
+            cleartime2 = setTimeout(function () {
+                $self.hide();
+                $self.parent().removeClass('active');
+                $('.newProvince').hide();
+            }, 700);
+            return false;
+        });
+        $('.changeCity').click(function () {
+            $('.newChangeCity').find('font').html($(this).text());
+            $('.newChangeCity').attr('cityid', $(this).attr('cityid'));
+            $('.newChangeCity').attr('network', $(this).attr('network'));
+            $('.newProvince').hide();
+            $('.cityshover').find('ul').hide();
+        });
+        $('.sureChangeCity').click(function () {
+            var network = $('.newChangeCity').attr('network');
+            var cityid = $('.newChangeCity').attr('cityid');
+            selectmap(network, cityid);
+            return false;
+        });
+    });
+</script>
+<div>
+    <div style="margin-top:10px">
+    </div>
+
+
+
+    {% block body %}
+    {% endblock body %}
+
+
+
+    <div class="h_footerhelp">
+        <p style="width:976px;"> 帮助中心 <i></i></p>
+        <!-- <a href="http://www.maidangao.com/" class="h_link" target="_blank">购买实体店蛋糕请点击此处 www.maidangao.com</a> -->
+        <div class="h_footmenu">
+            <dl>
+                <dt class="bg0"><i
+                        style="background:url(http://www.holiland.com/statics/images/bj3.png) no-repeat;"></i>购物指南
+                </dt>
+                <dd><a href="/article.php?id=7" title="购物流程">购物流程</a></dd>
+                <dd><a href="/article.php?id=9" title="蛋糕尺寸">蛋糕尺寸</a></dd>
+            </dl>
+            <dl>
+                <dt class="bg1"><i
+                        style="background:url(http://www.holiland.com/statics/images/bj3.png) no-repeat;"></i>订购范围
+                </dt>
+                <dd><a href="/article.php?id=12" title="地图查询">地图查询</a></dd>
+                <dd><a href="/article.php?id=13" title="团购业务">团购业务</a></dd>
+                <dd><a href="/article.php?id=44" title="北京门店">北京门店</a></dd>
+            </dl>
+            <dl>
+                <dt class="bg2"><i
+                        style="background:url(http://www.holiland.com/statics/images/bj3.png) no-repeat;"></i>公司服务
+                </dt>
+                <dd><a href="/article.php?id=14" title="储值卡">储值卡</a></dd>
+                <dd><a href="/article.php?id=77" title="官网营业资质">官网营业资质</a></dd>
+            </dl>
+            <dl>
+                <dt class="bg3"><i
+                        style="background:url(http://www.holiland.com/statics/images/bj3.png) no-repeat;"></i>企业招聘
+                </dt>
+                <dd><a href="/article.php?id=17" title="好利来招聘">好利来招聘</a></dd>
+                <dd><a href="/article.php?id=18" title="黑天鹅招聘">黑天鹅招聘</a></dd>
+            </dl>
+            <dl>
+                <dt class="bg4"><i
+                        style="background:url(http://www.holiland.com/statics/images/bj3.png) no-repeat;"></i>售后服务
+                </dt>
+                <dd><a href="/article.php?id=19" title="投诉渠道">投诉渠道</a></dd>
+                <dd><a href="/article.php?id=21" title="客服中心">客服中心</a></dd>
+                <dd><a href="/article.php?id=72" title="加盟维权">加盟维权</a></dd>
+            </dl>
+            <dl>
+                <dt class="bg6"><i></i>友情链接</dt>
+                <dd><a href="http://www.blackswancake.com/" title="黑天鹅蛋糕官网" target="_blank">黑天鹅蛋糕官网</a></dd>
+                <dd><a href="http://www.luohongartmuseum.com" title="罗红摄影艺术馆" target="_blank">罗红摄影艺术馆</a></dd>
+                <dd><a href="http://www.baidu.com/" title="百度" target="_blank">百度</a></dd>
+            </dl>
+        </div>
+    </div>
+    <div class="h_footer">
+	<span>
+		<p> Copyright2010 &#169;北京市好利来食品有限公司 版权所有 <br>京icp备15012142号 <br>好利来官方邮箱：info@holiland.com <br>
+            <!-- 好利来建议邮箱：jianyi@holiland.com <br> --></p>
+		<p>客服电话：400-700-5999</p>
+		<p>注册地址：北京市朝阳区观音堂文化大道甲6号北201室<br/>食品流通许可证号：<br/>统一社会信用代码：91110105721420005Y</p>
+	</span>
+        <div class="h_footerright">
+            <h4> FOLLOW US </h4>
+            <div class="jiathis_style_24x24 h">
+                <a title="分享到新浪微博" class="jiathis_button_tsina"></a>
+                <a class="h_weixin" title="微信关注我们"></a>
+            </div>
+            <div class="h_fenxiang">
+                <p> 在微信上关注我们 </p>
+                <img src="http://www.holiland.com/statics/images/weixin.jpg">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+    <script>
+        $(document).ready(function () {
+            //附加产品
+            $('.head label').click(function () {
+                if ($(this).hasClass('up')) {
+                    $(this).removeClass('up');
+                } else {
+                    $(this).addClass('up');
+                }
+            });
+            $('.head label').click(function () {
+                if ($(this).hasClass('up')) {
+                    $('.gouwuche_pro').slideDown();
+                }
+                else {
+                    $('.gouwuche_pro').slideUp();
+                }
+            });
+            //微信关注
+            $(".h_footer .h_footerright .h_weixin").hover(function () {
+                $(".h_fenxiang").slideDown();
+            }, function () {
+                $(".h_fenxiang").slideUp();
+            });
+            //帮助中心的弹出框
+            $(".h_footerhelp p").click(function () {
+                $(".h_footmenu").slideToggle();
+                if ($(this).hasClass('up')) {
+                    $(this).removeClass('up');
+                }
+                else {
+                    $(this).addClass('up');
+                }
+            });
+            $('.fudai p').click(function () {
+                if ($(this).hasClass('up')) {
+                    $('.h_footmenu').slideDown();
+                } else {
+                    $('.h_footmenu').slideUp();
+                }
+            });
+        });
+    </script>
+    <div style="display:none;">
+        <script type="text/javascript">
+            var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Fff2b8b9e6f62c97fe72b97c395421e26' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+    </div>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?84db765dc57dae49f858f0eb00f10c86";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- <script language="JavaScript" src="http://www.holiland.com/statics/js/floatcard.js"></script> -->
+    <!-- <script src="http://www.holiland.com/statics/js/all_20100501.js"></script> -->
+    <script language="javascript" src="http://floatedu.tq.cn/floatcard?adminid=9654958&sort=0"></script>
+    <script id="TQGetrequestUser_JS"></script>
+    <script id="TQGetIsNewMsg_JS"></script>
+    <!-- <script src="http://www.holiland.com/statics/js/as.js"></script> -->
+    <object id="tq_as" name="tq_as" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" height="1" width="1">
+        <param name="movie" value="http://sysimages.edu.tq.cn/js/vip/shareObject.swf">
+        <param name="allowScriptAccess" value="always">
+        <object id="tq_as2" name="tq_as2" type="application/x-shockwave-flash"
+                data="http://www.holiland.com/statics/shareObject.swf" height="1" width="1">
+            <param name="allowScriptAccess" value="always">
+        </object>
+    </object>
+    <script type="text/javascript" src="/static/js/layer/layer.js"></script>
+
+</body>
+</html>

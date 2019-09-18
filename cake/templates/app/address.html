@@ -1,0 +1,409 @@
+{% extends 'app/base.html' %}
+{% block css %}
+    <link href="/static/css/global.css" rel="stylesheet" type="text/css">
+<link href="/static/css/member.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all">
+<script language="JavaScript" src="/static/js/jquery.min.js"></script>
+<script src="/static/js/layer/layer.js" ></script>
+<script src="/static/js/ajaxForm.js" ></script>
+<script src="/static/js/common.js" ></script>
+<style type="text/css">
+.paysubmit{float:left; margin-left:10px;cursor: pointer; border:none; display: block;height: 40px;line-height: 40px;text-align: center;width: 100px;background: none repeat scroll 0% 0% #87D0E3;font-size: 16px; color:#fff;}
+#syl_but{
+  float: left;
+  margin-left: 10px;
+  cursor: pointer;
+  border: none;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100px;
+  background: none repeat scroll 0% 0% #87D0E3;
+  font-size: 16px;
+  color: #fff;
+}
+</style>
+
+{% endblock css %}
+
+{% block body %}
+    <div class="hll_meb">
+
+	<div class="hll_meb_l">
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>业务功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:order' %} ">查看订单</a></li>
+			<li><a href="{% url 'app:favorite' %} ">收藏夹</a></li>
+			<li><a href="{% url 'app:friend' %} ">我的亲友</a></li>
+			<li><a href="{% url 'app:address' %} ">收货地址簿</a></li>
+			<li><a href="{% url 'app:integral' %} ">我的积分</a></li>
+			<li><a href="{% url 'app:bonus' %} ">我的优惠券</a></li>
+			<!-- <li><a href="user.php?act=exchange">兑换优惠券</a></li> -->
+			<!-- <li><a href="user.php?act=return">退换货申请</a></li> -->
+			<li><a href="{% url 'app:message' %} ">投诉和建议</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>个人信息</h3></div>
+		<ul>
+			<li><a href="{% url 'app:changem' %} ">更换手机号</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">修改密码</a></li>
+			<li><a href="{% url 'app:editpwd' %} ">编辑用户信息</a></li>
+		</ul>
+	</div>
+	<div class="help_menu">
+		<div class="tit"><span></span><h3>其他功能</h3></div>
+		<ul>
+			<li><a href="{% url 'app:index' %}" class="opAjax" data-confirm="0" data-ismsg="1">退出</a></li>
+			<li><a href="{% url 'app:user' %}">返回帐户首页</a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	var objStr = ".help_menu div.tit span";
+	$(objStr).each(function(i){
+		$(this).click(function(){
+			$($(".help_menu div.tit")[i]).next("ul").slideToggle(20);
+			$(this).toggleClass("cur");
+			$(this).siblings("span").removeClass("cur");
+		});
+	});
+
+	$(".help_menu ul li").mouseover(function () {
+		$(this).addClass('Bg_hover');
+	});
+	$(".help_menu ul li").mouseout(function () {
+		$(this).removeClass('Bg_hover');
+	});
+});
+</script>
+
+	<div class="hll_meb_r">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<script language=javascript src="http://www.holiland.com/js/region_flow.js"></script>
+		<div class="hll_memDD">
+			<div class="tit">
+				<h3 class="meb_bt">我的收货地址簿</h3>
+				<div class="hll_intro">
+					共添加了<b>0</b> 个地址 &nbsp;
+										<a href="javascript:;" id="xzeng" onclick="changeAddress(0);">[新增]</a>
+									</div>
+			</div>
+			<div id="userInfoList">
+				<div class="hll_memDD hll_memList">
+					<table id="tbCartItemsNormal" border="0" cellpadding="0" cellspacing="0">
+						<tbody>
+							<tr>
+								<th class="text_10" width="10%">收货人</th>
+								<th><span>详情</span></th>
+								<th width="16%"><span>操作</span></th>
+							</tr>
+														<tr>
+								<td colspan="3" style="color:#626262;padding-bottom:18px;"><b>无收货地址</b></td>
+							</tr>
+													</tbody>
+					</table>
+				</div>
+			</div>
+			<div id="userInfoAdd" style="display:none;">
+				<form name="addressForm" action="http://www.holiland.com/user.php" method="post" class="ajaxForm">
+				<input name="act" value="act_edit_address" type="hidden">
+				<input name="address_id" id="address_id" value="" type="hidden">
+				<div class="hll_meb_tk">
+					<h3 class="meb_bt" id="addressType">
+						新增收货地址簿
+					</h3>
+					<div class="meb_bjxx">
+						<ul class="hg">
+							<li class="text_right"><b>*</b>收 货 人：</li>
+							<li>
+								<div class="xx"><input class="bg" name="consignee" id="consignee" value="" type="text"></div>
+							</li>
+							<span id="info1"></span>
+						</ul>
+						<!-- <ul class="hg">
+							<li class="text_right"><b>*</b>收货人性别：</li>
+							<li>
+								<div class="xx" style="width:120px;">
+									<input style="border:0;" name="sex" checked="true" value="1" type="radio">先生&nbsp;&nbsp;
+									<input style="border:0;" name="sex" value="0" type="radio">女士
+								</div>
+							</li>
+						</ul> -->
+						<ul class="hg">
+							<li class="text_right"><b>*</b>地　　址：</li>
+							<li>
+								<div class="xx">
+									<div id="systemareadiv">
+										<table cellpadding="0" cellspacing="1">
+											<tbody>
+												<tr>
+													<td id="provincialId" style="padding:0;border:0">
+																												<input type="hidden" name="country" value="1" />
+																												<select name="province" id="selProvinces" onchange="region.changed(this, 2, 'selCities')" class="input100" style="width:100px;margin-right:0px;">
+															<option value="0">请选择省</option>
+																														<option value="2">北京</option>
+																														<option value="4359">广东</option>
+																														<option value="4108">山西</option>
+																														<option value="5904">杭州</option>
+																														<option value="4120">山东</option>
+																														<option value="4121">河南</option>
+																														<option value="4122">江苏</option>
+																														<option value="4123">浙江</option>
+																														<option value="4124">安徽</option>
+																														<option value="4125">江西</option>
+																														<option value="4381">贵州</option>
+																														<option value="4126">福建</option>
+																														<option value="4127">湖北</option>
+																														<option value="4128">重庆</option>
+																														<option value="4129">上海</option>
+																														<option value="4388">云南</option>
+																														<option value="4408">甘肃</option>
+																														<option value="4422">宁夏</option>
+																														<option value="4428">广西</option>
+																														<option value="3419">四川</option>
+																														<option value="4443">内蒙古</option>
+																														<option value="3425">河北</option>
+																														<option value="3428">天津</option>
+																														<option value="3431">辽宁</option>
+																														<option value="3432">吉林</option>
+																														<option value="3433">黑龙江</option>
+																														<option value="3437">陕西</option>
+																														<option value="4345">湖南</option>
+																														<option value="6649">西藏</option>
+																													</select>
+														<select name="city" id="selCities" onchange="region.changed(this, 3, 'selDistricts')" class="input100" style="width:100px;margin-right:0px;">
+															<option value="0">请选择市</option>
+														</select>
+														<select name="district" id="selDistricts" style="display:none;width:100px;margin-right:0px;" class="input100" onchange="region.changed(this, 4, 'selStreets')">
+															<option value="0">请选择区</option>
+														</select>
+														<select name="street" id="selStreets" style="display:none;width:100px;margin-right:0px;" class="input100">
+															<option value="0">请选择街道</option>
+														</select>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</li>
+						</ul>
+						<ul class="hg">
+							<li class="text_right"><b>*</b>详细地址：</li>
+							<li>
+								<div class="xx"><input name="address" id="address" class="bg" value="" maxlength="60" type="text"></div>
+							</li>
+							<span id="info2"></span>
+						</ul>
+						<!-- <ul>
+							<li class="text_right">邮政编码：</li>
+							<li>
+								<div class="xx">
+									<input name="zipcode" id="zipcode" class="bg" value="" maxlength="6" type="text">
+								</div>
+							</li>
+							<span id="info3"></span>
+						</ul> -->
+						<ul>
+							<li class="text_right"><b>*</b>手机号码：</li>
+							<li>
+								<div class="xx">
+									<input name="mobile" id="mobile" class="bg" value="" maxlength="11" type="text">
+								</div>
+							</li>
+							<span id="info4"></span>
+						</ul>
+						<!-- <ul>
+							<li class="text_right">固定电话：</li>
+							<li>
+								<div class="xx">
+									<input class="bg" name="tel" id="tel" value="" type="text">
+								</div>
+							</li>
+							<span id="info5"></span>
+						</ul> -->
+						<!-- <ul>
+							<li class="text_right">收货人邮箱：</li>
+							<li>
+								<div class="xx">
+									<input name="email" id="email" class="bg" value="" maxlength="40" type="text">
+								</div>
+							</li>
+							<span id="info6"></span>
+						</ul> -->
+						<ul>
+							<li class="text_right"></li>
+							<li>
+								<a class="tj submitbtn" href="javascript:;" style="cursor:pointer;" callback="checkAddress" data-ismsg="1">确定</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				</form>
+				<script>
+				function changeAddress(addressId){
+					$('#addressType').html(addressId > 0 ? '编辑收货地址簿' : '新增收货地址簿');
+					$('#address_id').val(addressId);
+					$.get('http://www.holiland.com/user.php', {act:'changeAddress', addrid:addressId}, function(data){
+						try{
+							var data = JSON.parse(data);
+						}catch (e){}
+						var $address  = data.address;
+						var $province = data.province;
+						var $city     = data.city;
+						var $district = data.district;
+						var $street   = data.street;
+
+						$('#consignee').val($address.consignee);
+						/*$('input[name="sex"]').each(function(){
+							if ($(this).val() == $address.sex){
+								this.checked = true;
+							}
+						});*/
+
+						$('#selProvinces').empty();
+						if ($province.length > 0){
+							$.each($province, function(k,v){
+								$('#selProvinces').append('<option value="'+v.region_id+'"'+ (addressId > 0 ? (v.region_id == $address.province ? ' selected' : '') : ' selected') +'>'+v.region_name+'</option>');
+							});
+						}
+						//$('#selCities option:not(:first)').remove();
+						$('#selCities').empty();
+						if ($city.length > 0){
+							$.each($city, function(k,v){
+								$('#selCities').append('<option value="'+v.region_id+'"'+(addressId > 0 ? (v.region_id == $address.city ? ' selected' : '') : ' selected')+'>'+v.region_name+'</option>');
+							});
+						}
+						$('#selDistricts').hide();
+						$('#selDistricts option:not(:first)').remove();
+						if ($district.length > 0){
+							$.each($district, function(k,v){
+								$('#selDistricts').append('<option value="'+v.region_id+'"'+(v.region_id == $address.district ? ' selected' : '')+'>'+v.region_name+'</option>');
+							});
+							$('#selDistricts').show();
+						}
+						$('#selStreets').hide();
+						$('#selStreets option:not(:first)').remove();
+						if ($street.length > 0){
+							$.each($street, function(k,v){
+								$('#selStreets').append('<option value="'+v.region_id+'"'+(v.region_id == $address.street ? ' selected' : '')+'>'+v.region_name+'</option>');
+							});
+							$('#selStreets').show();
+						}
+
+						$('#address').val($address.address);
+						//$('#zipcode').val($address.zipcode);
+						$('#mobile').val($address.mobile);
+						//$('#tel').val($address.tel);
+						//$('#email').val($address.email);
+						$('#userInfoAdd').show();
+						$('html,body').animate({scrollTop:$('#userInfoAdd').offset().top},0);
+					});
+				}
+
+				function checkAddress(data){
+					if (data.state === 'info') {
+						if (data.message){
+							parent.layer.msg(data.message, {time:2000}, function(){
+								if (data.url){
+									window.parent.location.href = data.url;
+								}else{
+									window.parent.location.reload();
+								}
+							});
+						}else{
+							if (data.url){
+								window.parent.location.href = data.url;
+							}else{
+								window.parent.location.reload();
+							}
+						}
+					} else {
+						layer.msg(data.message, {time:2000}, function(index){
+							layer.close(index);
+							if (data.errorno > 0){
+								switch(data.errorno){
+									case 1:
+										$('input[name="consignee"]').focus();
+										break;
+									case 2:
+										$('#selProvinces').focus();
+										break;
+									case 3:
+										$('#selCities').focus();
+										break;
+									case 4:
+										$('input[name="address"]').focus();
+										break;
+									case 5:
+										$('input[name="mobile"]').focus();
+										break;
+									case 6:
+										$('input[name="mobile"]').select();
+										break;
+									case 7:
+										$('#selDistricts').focus();
+										break;
+									case 8:
+										$('#selStreets').focus();
+										break;
+								}
+							}
+						});
+					}
+				}
+				$(document).ready(function(){
+					$(".meb_bjxx ul.hg").mouseover(function () {
+						$(this).find("span").show();
+						//$(this).addClass('hover_bg');
+					});
+					$(".meb_bjxx ul.hg").mouseout(function () {
+						$(this).find("span").hide();
+						//$(this).removeClass('hover_bg');
+					});
+					$("#xzeng").click(function () {
+						$(".hll_meb_tk").css({display: "block"});
+					});
+				});
+				</script>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+		<!--#兑换优惠券页面 start>-->
+
+
+
+
+
+
+
+	</div>
+</div>
+
+{% endblock %}
